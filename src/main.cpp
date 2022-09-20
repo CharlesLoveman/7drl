@@ -9,6 +9,7 @@
 #include "GameMap.hpp"
 #include "MapRenderer.hpp"
 #include "MovementManager.hpp"
+#include "RandomTunnelGenerator.hpp"
 #include "RenderEvent.hpp"
 #include "StaticSingleRenderer.hpp"
 
@@ -32,7 +33,8 @@ int main(int argc, char* argv[]) {
 
     MapRenderer map_renderer = MapRenderer(&console);
     BasicRoomGenerator room_generator = BasicRoomGenerator();
-    BSPRoomGenerator map_generator = BSPRoomGenerator(&room_generator, 3, 10, 10, 1.5f, 1.5f);
+    RandomTunnelGenerator tunnel_generator = RandomTunnelGenerator();
+    BSPRoomGenerator map_generator = BSPRoomGenerator(&room_generator, &tunnel_generator, 3, 10, 10, 1.5f, 1.5f);
     GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer, &map_generator);
 
     StaticSingleRenderer r = StaticSingleRenderer(&console);
@@ -43,12 +45,12 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < game_map.height; ++i) {
         for (int j = 0; j < game_map.width; ++j) {
             if (game_map.walkable(j, i)) {
-                player.addComponent(Component::POSITION, std::vector<int>({j, i}));
+                player.addComponent(Components::POSITION, new Position(j, i));
                 break;
             }
         }
     }
-    player.addComponent(Component::TILE, std::vector<int>({'@'}));
+    player.addComponent(Components::TILE, new Tile(false, false, '@', {1, 1, 1}, {200, 200, 200}));
     RenderEvent render_player = RenderEvent(&player);
     RenderEvent render_map = RenderEvent(&game_map);
 

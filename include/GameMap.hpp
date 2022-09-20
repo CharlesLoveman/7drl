@@ -7,21 +7,6 @@
 #include <libtcod.hpp>
 #include <vector>
 
-struct Colour {
-    uint8_t r, g, b;
-    TCOD_ColorRGB toColor() {
-        return TCOD_ColorRGB({r, g, b});
-    }
-};
-
-struct Tile {
-    bool walkable;
-    bool transparent;
-    char ch;
-    Colour fg;
-    Colour bg;
-};
-
 
 class GameMap : public Entity {
 public:
@@ -29,10 +14,18 @@ public:
     int width;
     int height;
     std::vector<Tile> tiles;   
+    std::vector<bool> visible;
+    std::vector<bool> seen;
     bool in_bounds(int x, int y);
     bool walkable(int x, int y);
-    static const Tile constexpr EmptyTile = {true, true, '.', {255, 255, 255}, {1, 1, 1}};
-    static const Tile constexpr WallTile = {false, false, '#', {255, 255, 255}, {1, 1, 1}};
+    static const Tile &EmptyTile() {
+        static Tile empty_tile = Tile(true, true, '.', {100, 100, 100}, {7, 11, 52});
+        return empty_tile;
+    }
+    static const Tile &WallTile() {
+        static Tile wall_tile = Tile(false, false, '#', {50, 50, 50}, {146, 142, 133});
+        return wall_tile;
+    }
 private:
     RoomGenerator *generator;
 };

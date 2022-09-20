@@ -6,7 +6,7 @@ GameMap::GameMap(int _width, int _height, Renderer *renderer, RoomGenerator *_ge
     width = _width;
     height = _height;
     for (int i = 0; i < width * height; ++i) {
-        tiles.push_back(WallTile);
+        tiles.push_back(WallTile());
     }
     subscribe(renderer);
     generator = _generator;

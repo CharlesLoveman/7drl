@@ -13,7 +13,7 @@ Room BasicRoomGenerator::generate(int x, int y, int width, int height, std::vect
     int room_height = rng->get(3, height - (start_y - y));
     for (int i = 0; i < room_height; ++i) {
         for (int j = 0; j < room_width; ++j) {
-            (*source)[(start_y + i) * source_width + start_x + j] = GameMap::EmptyTile;
+            (*source)[(start_y + i) * source_width + start_x + j] = GameMap::EmptyTile();
         }
     }
     return {start_x, start_y, room_width, room_height};

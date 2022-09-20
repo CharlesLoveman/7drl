@@ -10,11 +10,13 @@ StaticSingleRenderer::StaticSingleRenderer(tcod::Console *_console) : Renderer(_
 
 bool StaticSingleRenderer::handleEvent(RenderEvent &event) {
     Entity *e= event.entity;
-    auto position = e->get(Component::POSITION);
-    auto tile = e->get(Component::TILE);
+    Position *position = dynamic_cast<Position*>(e->get(Components::POSITION));
+    if (!position) throw std::invalid_argument("Position Component was not Position!");
+    Tile *tile = dynamic_cast<Tile*>(e->get(Components::TILE));
+    if (!tile) throw std::invalid_argument("Tile Component was not Tile!");
     char s[2];
-    s[0] = (char) (*tile)[0];
+    s[0] = tile->ch;
     s[1] = '\0';
-    tcod::print(*console, {(*position)[0], (*position)[1]}, s, std::nullopt, std::nullopt);
+    tcod::print(*console, {position->x, position->y}, s, tile->fg.toColor(), tile->bg.toColor());
     return true;
 }

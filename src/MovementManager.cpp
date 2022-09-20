@@ -5,10 +5,12 @@
 
 bool MovementManager::handleEvent(MovementEvent &event) {
     Entity *e = event.entity;
-    auto position = e->get(Component::POSITION);
-    if (map->walkable((*position)[0] + event.x, (*position)[1] + event.y)) {
-        (*position)[0] += event.x;
-        (*position)[1] += event.y;
+    Component *c = e->get(Components::POSITION);
+    Position *position = dynamic_cast<Position*>(c);
+    if (!position) throw std::runtime_error("Position Component was not a Position!");
+    if (map->walkable(position->x + event.x, position->y + event.y)) {
+        position->x += event.x;
+        position->y += event.y;
     }
     return true;
 }

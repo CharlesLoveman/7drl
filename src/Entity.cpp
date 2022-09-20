@@ -6,15 +6,15 @@ int Entity::getId() {
     return id;
 }
 
-std::vector<int> *Entity::get(int id) {
-    return &components[id];
+Component *Entity::get(int id) {
+    return components[id];
 }
 
 bool Entity::hasComponent(int id) {
     return components.contains(id);
 }
 
-void Entity::addComponent(int id, std::vector<int> component) {
+void Entity::addComponent(int id, Component *component) {
     components.insert({id, component});
 }
 
@@ -31,4 +31,10 @@ void Entity::subscribe(Manager *m) {
 
 Entity::Entity() {
     id = nextId++;
+}
+
+Entity::~Entity() {
+    for (auto i : components) {
+        delete i.second;
+    }
 }

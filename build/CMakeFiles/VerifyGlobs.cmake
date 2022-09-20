@@ -15,10 +15,12 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/MapRenderer.hpp"
   "/Users/charlieloveman/Documents/7drl/include/MovementEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/MovementManager.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/RandomTunnelGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/RenderEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Renderer.hpp"
   "/Users/charlieloveman/Documents/7drl/include/RoomGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/StaticSingleRenderer.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/TunnelGenerator.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -37,6 +39,7 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/MapRenderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/MovementEvent.cpp"
   "/Users/charlieloveman/Documents/7drl/src/MovementManager.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/RandomTunnelGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/RenderEvent.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Renderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/StaticSingleRenderer.cpp"

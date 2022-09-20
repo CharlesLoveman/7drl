@@ -1,16 +1,47 @@
 #ifndef __COMPONENTS_H_
 #define __COMPONENTS_H_
 
-enum Component {
+#include <libtcod.hpp>
+
+enum Components {
     POSITION,
     TILE,
 };
 
-/*
-POSITION: x, y
-TILE: char, fg, bg
-SPRITE: width, height, chars, fgs, bgs
-ANIMATED_SPRITE: num_anims, anim_x, anim_y, frame, width, height, anim_lengths, chars, fgs, bgs
-*/
+struct Component {
+    virtual ~Component() {};
+};
+
+struct Position : Component {
+    Position(int _x, int _y) : Component() {
+        x = _x;
+        y = _y;
+    }
+    ~Position() {}
+    int x, y;
+};
+
+struct Colour {
+    uint8_t r, g, b;
+    TCOD_ColorRGB toColor() {
+        return TCOD_ColorRGB({r, g, b});
+    }
+};
+
+struct Tile : Component {
+    Tile(bool _walkable, bool _transparent, char _ch, Colour _fg, Colour _bg) : Component() {
+        walkable = _walkable;
+        transparent = _transparent;
+        ch = _ch;
+        fg = _fg;
+        bg = _bg;
+    }
+    ~Tile() {}
+    bool walkable;
+    bool transparent;
+    char ch;
+    Colour fg;
+    Colour bg;
+};
 
 #endif
