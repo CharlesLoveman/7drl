@@ -2,6 +2,7 @@
 #include <libtcod.hpp>
 #include <memory>
 
+#include "BasicRoomGenerator.hpp"
 #include "Components.hpp"
 #include "Entity.hpp"
 #include "GameMap.hpp"
@@ -29,7 +30,8 @@ int main(int argc, char* argv[]) {
     auto context = tcod::Context(params);
 
     MapRenderer map_renderer = MapRenderer(&console);
-    GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer);
+    BasicRoomGenerator room_generator = BasicRoomGenerator();
+    GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer, &room_generator);
 
     StaticSingleRenderer r = StaticSingleRenderer(&console);
     MovementManager m = MovementManager(&game_map);

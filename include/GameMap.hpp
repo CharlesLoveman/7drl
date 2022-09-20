@@ -3,6 +3,7 @@
 
 #include "Entity.hpp"
 #include "Renderer.hpp"
+#include "RoomGenerator.hpp"
 #include <libtcod.hpp>
 #include <vector>
 
@@ -24,15 +25,16 @@ struct Tile {
 
 class GameMap : public Entity {
 public:
-    GameMap(int width, int height, Renderer *renderer);
+    GameMap(int width, int height, Renderer *renderer, RoomGenerator *generator);
     int width;
     int height;
     std::vector<Tile> tiles;   
     bool in_bounds(int x, int y);
     bool walkable(int x, int y);
+    static const Tile constexpr EmptyTile = {true, true, '.', {255, 255, 255}, {1, 1, 1}};
+    static const Tile constexpr WallTile = {false, false, '#', {255, 255, 255}, {1, 1, 1}};
 private:
-    Tile EmptyTile = {true, true, '.', {255, 255, 255}, {1, 1, 1}};
-    Tile WallTile = {false, false, '#', {255, 255, 255}, {1, 1, 1}};
+    RoomGenerator *generator;
 };
 
 #endif
