@@ -40,9 +40,16 @@ int main(int argc, char* argv[]) {
     Entity player = Entity();
     player.subscribe(&r);
     player.subscribe(&m);
-    player.addComponent(Component::POSITION, std::vector<int>({0, 0}));
+    for (int i = 0; i < game_map.height; ++i) {
+        for (int j = 0; j < game_map.width; ++j) {
+            if (game_map.walkable(j, i)) {
+                player.addComponent(Component::POSITION, std::vector<int>({j, i}));
+                break;
+            }
+        }
+    }
     player.addComponent(Component::TILE, std::vector<int>({'@'}));
-        RenderEvent render_player = RenderEvent(&player);
+    RenderEvent render_player = RenderEvent(&player);
     RenderEvent render_map = RenderEvent(&game_map);
 
     while (1) {
