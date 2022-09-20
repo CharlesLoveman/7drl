@@ -1,7 +1,7 @@
 Detecting compiler hash for triplet arm64-osx...
 All requested packages are currently installed.
-Restored 0 package(s) from /Users/charlieloveman/.cache/vcpkg/archives in 3.333 us. Use --debug to see more details.
-Total elapsed time: 3.225 s
+Restored 0 package(s) from /Users/charlieloveman/.cache/vcpkg/archives in 3.375 us. Use --debug to see more details.
+Total elapsed time: 3.236 s
 sdl2 provides CMake targets:
 
     # this is heuristically generated, and may not be correct

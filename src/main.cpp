@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "BasicRoomGenerator.hpp"
+#include "BSPRoomGenerator.hpp"
 #include "Components.hpp"
 #include "Entity.hpp"
 #include "GameMap.hpp"
@@ -31,7 +32,8 @@ int main(int argc, char* argv[]) {
 
     MapRenderer map_renderer = MapRenderer(&console);
     BasicRoomGenerator room_generator = BasicRoomGenerator();
-    GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer, &room_generator);
+    BSPRoomGenerator map_generator = BSPRoomGenerator(&room_generator, 3, 10, 10, 1.5f, 1.5f);
+    GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer, &map_generator);
 
     StaticSingleRenderer r = StaticSingleRenderer(&console);
     MovementManager m = MovementManager(&game_map);
