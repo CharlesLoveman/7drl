@@ -12,11 +12,16 @@ public:
     Entity();
     ~Entity();
     int getId();
-    Component *get(int id);
     bool hasComponent(int id);
     void raiseEvent(Event &e);
     void subscribe(Manager *m);
     void addComponent(int id, Component *component);
+    template<typename T>
+    T* get() {
+        T *p = dynamic_cast<T*>(components[T::id()]);
+        if (!p) throw std::runtime_error("Component did not match expected type!");
+        return p;
+    }
 private:
     std::unordered_map<int, Component*> components;
     std::vector<Manager*> managers;

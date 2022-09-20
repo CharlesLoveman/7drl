@@ -8,6 +8,9 @@ bool Manager::handleEvent(MovementEvent&) {
     return false;
 }
 
+bool Manager::handleEvent(FovEvent&) {
+    return false;
+}
 Manager::~Manager() {
 
 }

@@ -19,18 +19,18 @@ BSPRoomGenerator::BSPRoomGenerator(RoomGenerator *_generator, TunnelGenerator *_
 bool BSPRoomGenerator::GenCallback::visitNode(TCODBsp *node, void *userData) {
     GenData *data = (GenData *) userData;
     if (node->isLeaf()) {
-        Room r = (data->generator)->generate(node->x, node->y, node->w, node->h, data->source, data->source_width);
+        Room r = (data->generator)->generate(node->x, node->y, node->w, node->h, data->map);
         node->resize(r.x, r.y, r.width, r.height);
         data->leaves.push_back(node);
     } 
     return true;
 }
     
-Room BSPRoomGenerator::generate(int x, int y, int width, int height, std::vector<Tile> *source, int source_width) {
+Room BSPRoomGenerator::generate(int x, int y, int width, int height, GameMap *map) {
     TCODBsp bsp = TCODBsp(x, y, width, height);
     bsp.splitRecursive(rng, nb, minHSize, minVSize, maxHRatio, maxVRatio);
-    GenData data = {source, source_width, generator, std::vector<TCODBsp*>()};
+    GenData data = {map, generator, std::vector<TCODBsp*>()};
     bsp.traversePostOrder(new GenCallback(), &data);
-    tunnel_generator->generate(data.leaves, source, source_width);
+    tunnel_generator->generate(data.leaves, map);
     return {x, y, width, height};
 }

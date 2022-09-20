@@ -7,7 +7,7 @@ class RandomTunnelGenerator : public TunnelGenerator {
 public:
     RandomTunnelGenerator();
     ~RandomTunnelGenerator() {}
-    void generate(std::vector<TCODBsp*> rooms, std::vector<Tile> *source, int source_width) override;
+    void generate(std::vector<TCODBsp*> rooms, GameMap *map) override;
 private:
     TCODRandom *rng;
 };

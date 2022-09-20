@@ -6,6 +6,8 @@
 #include "BSPRoomGenerator.hpp"
 #include "Components.hpp"
 #include "Entity.hpp"
+#include "FovEvent.hpp"
+#include "FovManager.hpp"
 #include "GameMap.hpp"
 #include "MapRenderer.hpp"
 #include "MovementManager.hpp"
@@ -39,9 +41,11 @@ int main(int argc, char* argv[]) {
 
     StaticSingleRenderer r = StaticSingleRenderer(&console);
     MovementManager m = MovementManager(&game_map);
+    FovManager fov_manager = FovManager(&game_map);
     Entity player = Entity();
     player.subscribe(&r);
     player.subscribe(&m);
+    player.subscribe(&fov_manager);
     for (int i = 0; i < game_map.height; ++i) {
         for (int j = 0; j < game_map.width; ++j) {
             if (game_map.walkable(j, i)) {
@@ -50,12 +54,15 @@ int main(int argc, char* argv[]) {
             }
         }
     }
-    player.addComponent(Components::TILE, new Tile(false, false, '@', {1, 1, 1}, {200, 200, 200}));
+    player.addComponent(Components::TILE, new Tile(false, false, '@', {1, 1, 1}, {200, 200, 200}, {1, 1, 1}, {200, 200, 200}));
+    player.addComponent(Components::FOV, new Fov(8, true, FOV_RESTRICTIVE));
     RenderEvent render_player = RenderEvent(&player);
     RenderEvent render_map = RenderEvent(&game_map);
+    FovEvent fov_player = FovEvent(&player);
 
     while (1) {
         TCOD_console_clear(console.get());
+        player.raiseEvent(fov_player);
         game_map.raiseEvent(render_map);
         player.raiseEvent(render_player);
         context.present(console);

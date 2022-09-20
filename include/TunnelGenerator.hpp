@@ -4,12 +4,12 @@
 #include <libtcod.hpp>
 #include <vector>
 
-struct Tile;
+class GameMap;
 
 class TunnelGenerator {
 public:
     virtual ~TunnelGenerator() {}
-    virtual void generate(std::vector<TCODBsp*> rooms, std::vector<Tile> *source, int source_width) = 0;
+    virtual void generate(std::vector<TCODBsp*> rooms, GameMap *map) = 0;
 };
 
 #endif

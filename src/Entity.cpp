@@ -6,10 +6,6 @@ int Entity::getId() {
     return id;
 }
 
-Component *Entity::get(int id) {
-    return components[id];
-}
-
 bool Entity::hasComponent(int id) {
     return components.contains(id);
 }
