@@ -5,15 +5,10 @@
 
 struct Tile;
 
-struct Room {
-    int x, y, width, height;
-    std::vector<Tile> tiles; 
-};
-
 class RoomGenerator {
 public:
     virtual ~RoomGenerator() {}
-    virtual Room generate(int x, int y, int width, int height) = 0;
+    virtual void generate(int x, int y, int width, int height, std::vector<Tile> *source, int source_width) = 0;
 };
 
 #endif

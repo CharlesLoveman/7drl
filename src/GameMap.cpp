@@ -10,12 +10,7 @@ GameMap::GameMap(int _width, int _height, Renderer *renderer, RoomGenerator *_ge
     }
     subscribe(renderer);
     generator = _generator;
-    Room room = generator->generate(1, 1, width - 1, height - 1);
-    for (int i = 0; i < room.height; ++i) {
-        for (int j = 0; j < room.width; ++j) {
-            tiles[(room.y + i) * width + (room.x + j)] = room.tiles[i * room.width + j];
-        }
-    }
+    generator->generate(1, 1, width - 1, height - 1, &tiles, width);
 }
 
 bool GameMap::in_bounds(int x, int y) {
