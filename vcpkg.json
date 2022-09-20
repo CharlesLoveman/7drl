@@ -1,0 +1,17 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+    "name": "rougelike",
+    "version-semver": "0.0.0",
+    "dependencies": [
+      "libtcod",
+      "sdl2",
+      {
+        "name": "sdl2",
+        "default-features": false,
+        "features": [
+          "x11"
+        ],
+        "platform": "linux"
+      }
+    ]
+  }

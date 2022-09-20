@@ -1,0 +1,156 @@
+Package: vcpkg-cmake
+Version: 2022-07-18
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 2ce6b942da984b0f2a304bdd6777f8d65328cfa4dfb068e5b3e2e65fc290dcd0
+Type: Port
+Status: install ok installed
+
+Package: zlib
+Version: 1.2.12
+Port-Version: 1
+Depends: vcpkg-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 9f2d3bd08a974a02f8049397652888788c52ea7fef27fc26ca08d8c0b2046c1c
+Description: A compression library
+Type: Port
+Status: install ok installed
+
+Package: vcpkg-cmake-config
+Version: 2022-02-06
+Port-Version: 1
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: af376c2b7798fd84fcbdca445ff480d10b58b330e9341450244348317831bba6
+Type: Port
+Status: install ok installed
+
+Package: utf8proc
+Version: 2.7.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 82df3124d0a6ef39a015c83fd0867bec0a6ac8b3e22a100bfc4f12418d8d698e
+Description: Clean C library for processing UTF-8 Unicode data.
+Type: Port
+Status: install ok installed
+
+Package: sdl2
+Version: 2.24.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ed02f452c12c7a8adcfd49fbb5161361d1237f22ca1f8a42a22612aab419780d
+Description: Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.
+Type: Port
+Status: install ok installed
+
+Package: egl-registry
+Version: 2021-11-23
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: edd2762c84c34fe169c35b107db0f4b0db55427a97e132a95d585f48e4151cbe
+Description: the EGL API and Extension Registry
+Type: Port
+Status: install ok installed
+
+Package: opengl-registry
+Version: 2021-11-17
+Depends: egl-registry
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 213ec382cada09fa8ea4dd976d1ec09fe733778957778287e9af472acbf1afaa
+Description: the API and Extension registries for the OpenGL family APIs
+Type: Port
+Status: install ok installed
+
+Package: glad
+Version: 0.1.36
+Depends: egl-registry, opengl-registry, vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 9a188fd3fb1fc1de0f563f6372fcd0947052e6409f799bd126bb7808dc67c33d
+Description: Multi-Language Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs.
+Type: Port
+Default-Features: loader
+Status: install ok installed
+
+Package: glad
+Feature: loader
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Generate loader logic.
+Type: Port
+Status: install ok installed
+
+Package: lodepng
+Version: 2021-12-04
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: f9dd932baa94a2a39a67a60fa5ba42f16949ae94f9ba010e4c25ee5803b2e724
+Description: PNG encoder and decoder in C++
+Type: Port
+Status: install ok installed
+
+Package: stb
+Version: 2021-09-10
+Port-Version: 1
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: dbb90cefe3e8364ef6a55986990497617aaf59946a8e8d285147c570d4b88bf6
+Description: public domain header-only libraries
+Type: Port
+Status: install ok installed
+
+Package: libtcod
+Version: 1.22.3
+Depends: stb, vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Maintainer: Kyle Benesch <4b796c65+github@gmail.com>
+Abi: ceffd8183e60a26a188654a3fb534ff2ee909a9198632f2c7f1222180affdce3
+Description: Common algorithms and tools for roguelikes.
+Type: Port
+Default-Features: png, sdl, unicode, zlib
+Status: install ok installed
+
+Package: libtcod
+Feature: png
+Depends: lodepng
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Support for reading and writing PNG files.  Required to save screenshots and to load tilesets from files.
+Type: Port
+Status: install ok installed
+
+Package: libtcod
+Feature: sdl
+Depends: glad, sdl2
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Support for SDL2 windows and events including OpenGL support and the libtcod context.
+Type: Port
+Status: install ok installed
+
+Package: libtcod
+Feature: unicode
+Depends: utf8proc
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Support for non-ASCII characters.  Required for text printing functions
+Type: Port
+Status: install ok installed
+
+Package: libtcod
+Feature: zlib
+Depends: zlib
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Support for REXPaint files and TCODZip archives.
+Type: Port
+Status: install ok installed
+
