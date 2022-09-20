@@ -82,6 +82,22 @@ int main(int argc, char* argv[]) {
                             case SDLK_l:
                                 x += 1;
                                 break;
+                            case SDLK_y:
+                                x -= 1;
+                                y -= 1;
+                                break;
+                            case SDLK_u:
+                                x += 1;
+                                y -= 1;
+                                break;
+                            case SDLK_b:
+                                x -= 1;
+                                y += 1;
+                                break;
+                            case SDLK_n:
+                                x += 1;
+                                y += 1;
+                                break;
                         }
                         MovementEvent move = MovementEvent(&player, x, y);
                         player.raiseEvent(move);
