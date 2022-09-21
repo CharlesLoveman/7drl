@@ -6,15 +6,14 @@
 
 #include <iostream>
 
-StaticSingleRenderer::StaticSingleRenderer(tcod::Console *_console) : Renderer(_console) {}
+StaticSingleRenderer::StaticSingleRenderer(tcod::Console &_console) : Renderer(_console) {}
 
 bool StaticSingleRenderer::handleEvent(RenderEvent &event) {
-    Entity *e= event.entity;
-    Position *position = e->get<Position>();
-    Tile *tile = e->get<Tile>();
+    Position &position = event.entity.get<Position>();
+    Tile &tile = event.entity.get<Tile>();
     char s[2];
-    s[0] = tile->ch;
+    s[0] = tile.ch;
     s[1] = '\0';
-    tcod::print(*console, {position->x, position->y}, s, tile->fg.toColor(), tile->bg.toColor());
+    tcod::print(console, {position.x, position.y}, s, tile.fg.toColor(), tile.bg.toColor());
     return true;
 }

@@ -12,7 +12,7 @@ struct Room {
 class RoomGenerator {
 public:
     virtual ~RoomGenerator() {}
-    virtual Room generate(int x, int y, int width, int height, GameMap *map) = 0;
+    virtual Room generate(int x, int y, int width, int height, GameMap &map) = 0;
 };
 
 #endif

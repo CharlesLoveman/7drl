@@ -4,6 +4,7 @@
 #include "Components.hpp"
 #include "Event.hpp"
 #include "Manager.hpp"
+#include <memory>
 #include <unordered_map>
 #include <vector>
 
@@ -14,17 +15,19 @@ public:
     int getId();
     bool hasComponent(int id);
     void raiseEvent(Event &e);
-    void subscribe(Manager *m);
-    void addComponent(int id, Component *component);
+    void subscribe(std::shared_ptr<Manager> m);
+    template<typename T, typename... Args>
+    void addComponent(Args... args) {
+        components.insert({T::id(), std::make_unique<T>(args...)});
+    }
+
     template<typename T>
-    T* get() {
-        T *p = dynamic_cast<T*>(components[T::id()]);
-        if (!p) throw std::runtime_error("Component did not match expected type!");
-        return p;
+    T& get() {
+        return dynamic_cast<T&>(*components[T::id()]);
     }
 private:
-    std::unordered_map<int, Component*> components;
-    std::vector<Manager*> managers;
+    std::unordered_map<int, std::unique_ptr<Component>> components;
+    std::vector<std::shared_ptr<Manager>> managers;
     int id;
     static int nextId;
 };

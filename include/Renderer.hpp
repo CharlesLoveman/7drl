@@ -7,11 +7,11 @@
 
 class Renderer : public Manager {
 public:
-    Renderer(tcod::Console *console);
-    virtual ~Renderer();
+    Renderer(tcod::Console &c) : console(c) {}
+    virtual ~Renderer() {}
     virtual bool handleEvent(RenderEvent&) override = 0;
 protected:
-    tcod::Console *console;
+    tcod::Console &console;
 };
 
 #endif

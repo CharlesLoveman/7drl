@@ -6,11 +6,11 @@
 
 class FovManager : public Manager {
 public:
-    FovManager(GameMap *game_map) : Manager() {map = game_map;}
+    FovManager(GameMap &game_map) : Manager(), map(game_map) {}
     virtual ~FovManager() {}
     virtual bool handleEvent(FovEvent&) override;
 private:
-    GameMap *map;
+    GameMap &map;
 };
 
 #endif

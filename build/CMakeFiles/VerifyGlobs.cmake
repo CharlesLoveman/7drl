@@ -47,7 +47,6 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/MovementManager.cpp"
   "/Users/charlieloveman/Documents/7drl/src/RandomTunnelGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/RenderEvent.cpp"
-  "/Users/charlieloveman/Documents/7drl/src/Renderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/StaticSingleRenderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/main.cpp"
   )

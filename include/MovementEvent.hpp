@@ -5,7 +5,7 @@
 
 class MovementEvent : public Event {
 public:
-    MovementEvent(Entity *e, int _x, int _y) : Event(e) {
+    MovementEvent(Entity &e, int _x, int _y) : Event(e) {
         x = _x;
         y = _y;
     }

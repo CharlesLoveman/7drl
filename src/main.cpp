@@ -33,37 +33,37 @@ int main(int argc, char* argv[]) {
 
     auto context = tcod::Context(params);
 
-    MapRenderer map_renderer = MapRenderer(&console);
-    BasicRoomGenerator room_generator = BasicRoomGenerator();
-    RandomTunnelGenerator tunnel_generator = RandomTunnelGenerator();
-    BSPRoomGenerator map_generator = BSPRoomGenerator(&room_generator, &tunnel_generator, 3, 10, 10, 1.5f, 1.5f);
-    GameMap game_map = GameMap(WIDTH, HEIGHT, &map_renderer, &map_generator);
+    auto map_renderer = std::make_shared<MapRenderer>(console);
+    auto room_generator = std::make_shared<BasicRoomGenerator>();
+    auto tunnel_generator = std::make_shared<RandomTunnelGenerator>();
+    auto map_generator = std::make_shared<BSPRoomGenerator>(room_generator, tunnel_generator, 3, 10, 10, 1.5f, 1.5f);
+    auto game_map = std::make_shared<GameMap>(WIDTH, HEIGHT, map_renderer, map_generator);
 
-    StaticSingleRenderer r = StaticSingleRenderer(&console);
-    MovementManager m = MovementManager(&game_map);
-    FovManager fov_manager = FovManager(&game_map);
+    auto r = std::make_shared<StaticSingleRenderer>(console);
+    auto m = std::make_shared<MovementManager>(*game_map);
+    auto fov_manager = std::make_shared<FovManager>(*game_map);
     Entity player = Entity();
-    player.subscribe(&r);
-    player.subscribe(&m);
-    player.subscribe(&fov_manager);
-    for (int i = 0; i < game_map.height; ++i) {
-        for (int j = 0; j < game_map.width; ++j) {
-            if (game_map.walkable(j, i)) {
-                player.addComponent(Components::POSITION, new Position(j, i));
+    player.subscribe(r);
+    player.subscribe(m);
+    player.subscribe(fov_manager);
+    for (int i = 0; i < game_map->height; ++i) {
+        for (int j = 0; j < game_map->width; ++j) {
+            if (game_map->walkable(j, i)) {
+                player.addComponent<Position>(j, i);
                 break;
             }
         }
     }
-    player.addComponent(Components::TILE, new Tile(false, false, '@', {0, 0, 0}, {0.8, 0.8, 0.8}, {0, 0, 0}, {0.4, 0.4, 0.4}));
-    player.addComponent(Components::FOV, new Fov(8, true, FOV_RESTRICTIVE));
-    RenderEvent render_player = RenderEvent(&player);
-    RenderEvent render_map = RenderEvent(&game_map);
-    FovEvent fov_player = FovEvent(&player);
+    player.addComponent<Tile>(false, false, '@', Colour(0.0f, 0.0f, 0.0f), Colour(0.8f, 0.8f, 0.8f), Colour(0.0f, 0.0f, 0.0f), Colour(0.4f, 0.4f, 0.4f));
+    player.addComponent<Fov>(8, true, FOV_RESTRICTIVE);
+    RenderEvent render_player = RenderEvent(player);
+    RenderEvent render_map = RenderEvent(*game_map);
+    FovEvent fov_player = FovEvent(player);
 
     while (1) {
         TCOD_console_clear(console.get());
         player.raiseEvent(fov_player);
-        game_map.raiseEvent(render_map);
+        game_map->raiseEvent(render_map);
         player.raiseEvent(render_player);
         context.present(console);
 
@@ -108,7 +108,7 @@ int main(int argc, char* argv[]) {
                                 y += 1;
                                 break;
                         }
-                        MovementEvent move = MovementEvent(&player, x, y);
+                        MovementEvent move = MovementEvent(player, x, y);
                         player.raiseEvent(move);
                     }
             }

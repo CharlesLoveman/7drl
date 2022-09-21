@@ -6,11 +6,11 @@
 
 class MovementManager : public Manager {
 public:
-    MovementManager(GameMap *game_map) : Manager() {map = game_map;}
+    MovementManager(GameMap &game_map) : Manager(), map(game_map) {}
     virtual ~MovementManager() {}
     virtual bool handleEvent(MovementEvent&) override;
 private:
-    GameMap *map;
+    GameMap &map;
 };
 
 #endif

@@ -2,23 +2,22 @@
 
 #include "MapRenderer.hpp"
 
-GameMap::~GameMap() {
-    delete map;
-}
+GameMap::~GameMap() {}
 
 #include <iostream>
-GameMap::GameMap(int _width, int _height, Renderer *renderer, RoomGenerator *_generator) : Entity() {
+GameMap::GameMap(int _width, int _height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> _generator) : Entity() {
     width = _width;
     height = _height;
-    map = new TCODMap(width, height);
+    map = std::make_unique<TCODMap>(width, height);
     tiles = std::vector<Tile>(width * height, WallTile());
     for (unsigned int i = 0; i < tiles.size(); ++i) {
         tiles[i].bg.shift(0.1f);
     }
     seen = std::vector<bool>(width * height, false);
+    entities = std::unordered_set<std::unique_ptr<Entity>>();
     subscribe(renderer);
     generator = _generator;
-    generator->generate(1, 1, width - 2, height - 2, this);
+    generator->generate(1, 1, width - 2, height - 2, *this);
 }
 
 bool GameMap::in_bounds(int x, int y) {
@@ -27,6 +26,10 @@ bool GameMap::in_bounds(int x, int y) {
 
 bool GameMap::walkable(int x, int y) {
     return in_bounds(x, y) && tiles[y * width + x].walkable;
+}
+
+bool GameMap::visible(int x, int y) {
+    return in_bounds(x, y) && map->isInFov(x, y);
 }
 
 void GameMap::set(int x, int y, const Tile &tile) {

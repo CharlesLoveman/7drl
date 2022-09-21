@@ -5,7 +5,7 @@
 
 class FovEvent : public Event {
 public:
-    FovEvent(Entity *e) : Event(e) {}
+    FovEvent(Entity &e) : Event(e) {}
     ~FovEvent() {}
     bool accept(Manager &m) override;
 };

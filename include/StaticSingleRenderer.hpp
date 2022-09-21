@@ -5,7 +5,7 @@
 
 class StaticSingleRenderer : public Renderer {
 public:
-    StaticSingleRenderer(tcod::Console *console);
+    StaticSingleRenderer(tcod::Console &console);
     bool handleEvent(RenderEvent&) override;
 };
 

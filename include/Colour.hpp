@@ -18,6 +18,8 @@ struct Colour {
 
     HSVColour toHSV();
     void shift(float s); 
+
+    Colour(float R, float G, float B) {r = R; g = G; b = B;}
 };
 
 #endif

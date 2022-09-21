@@ -10,10 +10,6 @@ bool Entity::hasComponent(int id) {
     return components.contains(id);
 }
 
-void Entity::addComponent(int id, Component *component) {
-    components.insert({id, component});
-}
-
 void Entity::raiseEvent(Event &e) {
     for (auto m : managers) {
         if (e.accept(*m)) return;
@@ -21,7 +17,7 @@ void Entity::raiseEvent(Event &e) {
     throw "Unhandled Event!";
 }
 
-void Entity::subscribe(Manager *m) {
+void Entity::subscribe(std::shared_ptr<Manager> m) {
     managers.push_back(m);
 }
 
@@ -29,8 +25,4 @@ Entity::Entity() {
     id = nextId++;
 }
 
-Entity::~Entity() {
-    for (auto i : components) {
-        delete i.second;
-    }
-}
+Entity::~Entity() {}

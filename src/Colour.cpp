@@ -6,7 +6,7 @@ Colour HSVColour::toRGB() {
     float C = S * V;
     float Hp = H / 60.0f;
     float X = C * (1 - abs(fmod(Hp, 2) - 1));
-    Colour rgb;
+    Colour rgb = {0.0f, 0.0f, 0.0f};
     if (0 <= Hp && Hp < 1) {
         rgb = {C, X, 0};
     } else if (1 <= Hp && Hp < 2) {

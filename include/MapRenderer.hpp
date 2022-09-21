@@ -5,7 +5,7 @@
 
 class MapRenderer : public Renderer {
 public:
-    MapRenderer(tcod::Console *console);
+    MapRenderer(tcod::Console &console) : Renderer(console) {}
     bool handleEvent(RenderEvent &event) override;
     tcod::Console mapConsole;
 };

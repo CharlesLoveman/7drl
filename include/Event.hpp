@@ -6,10 +6,10 @@ class Manager;
 
 class Event {
 public:
-    Event(Entity*);
+    Event(Entity&);
     virtual ~Event();
     virtual bool accept(Manager&) = 0;
-    Entity *entity;
+    Entity &entity;
 };
 
 #endif

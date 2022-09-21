@@ -5,7 +5,7 @@
 
 class RenderEvent : public Event {
 public:
-    RenderEvent(Entity *e) : Event(e) {}
+    RenderEvent(Entity &e) : Event(e) {}
     ~RenderEvent() {}
     bool accept(Manager &m) override;
 };

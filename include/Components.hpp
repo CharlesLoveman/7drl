@@ -29,14 +29,10 @@ struct Position : Component {
 
 
 struct Tile : Component {
-    Tile(bool _walkable, bool _transparent, char _ch, Colour _fg, Colour _bg, Colour _dark_fg, Colour _dark_bg) : Component() {
+    Tile(bool _walkable, bool _transparent, char _ch, Colour _fg, Colour _bg, Colour _dark_fg, Colour _dark_bg) : Component(), fg(_fg), bg(_bg), dark_fg(_dark_fg), dark_bg(_dark_bg) {
         walkable = _walkable;
         transparent = _transparent;
         ch = _ch;
-        fg = _fg;
-        bg = _bg;
-        dark_fg = _dark_fg;
-        dark_bg = _dark_bg;
     }
     ~Tile() {}
     static int id() {return Components::TILE;}
