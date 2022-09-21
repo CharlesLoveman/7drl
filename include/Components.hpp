@@ -4,7 +4,7 @@
 #include "Colour.hpp"
 #include <libtcod.hpp>
 
-enum Components {
+enum class ComponentID {
     POSITION,
     TILE,
     FOV,
@@ -21,7 +21,7 @@ struct Position : Component {
     }
     ~Position() {}
     int x, y;
-    static int id() {return Components::POSITION;}
+    static ComponentID id() {return ComponentID::POSITION;}
 };
 
 struct Tile : Component {
@@ -31,7 +31,7 @@ struct Tile : Component {
         ch = _ch;
     }
     ~Tile() {}
-    static int id() {return Components::TILE;}
+    static ComponentID id() {return ComponentID::TILE;}
     bool walkable;
     bool transparent;
     char ch;
@@ -44,7 +44,7 @@ struct Tile : Component {
 struct Fov : Component {
     Fov(int _radius, bool _light_walls=true, TCOD_fov_algorithm_t _algo=FOV_BASIC) {radius = _radius; light_walls = _light_walls; algo = _algo;}
     ~Fov() {}
-    static int id() {return Components::FOV;}
+    static ComponentID id() {return ComponentID::FOV;}
     int radius;
     bool light_walls;
     TCOD_fov_algorithm_t algo;

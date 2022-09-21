@@ -13,5 +13,6 @@ public:
     int x;
     int y;
     bool accept(Manager&) override;
+    ManagerID id() override;
 };
 #endif

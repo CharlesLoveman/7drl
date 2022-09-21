@@ -17,9 +17,11 @@ GameMap::GameMap(int _width, int _height, std::shared_ptr<Renderer> renderer, st
     entities = std::unordered_set<std::unique_ptr<Entity>>();
     subscribe(renderer);
     room_generator = _room_generator;
-    room_generator->generate(1, 1, width - 2, height - 2, *this);
+    rooms = room_generator->generate(1, 1, width - 2, height - 2, *this);
     entity_generator = _entity_generator;
-    entities.insert(entity_generator->generate());
+    for (auto r : rooms) {
+        entity_generator->generate(r, entities);
+    }
 }
 
 bool GameMap::in_bounds(int x, int y) {

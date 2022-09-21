@@ -10,7 +10,7 @@ RandomTunnelGenerator::RandomTunnelGenerator() {
     rng = TCODRandom::getInstance();
 }
 
-void RandomTunnelGenerator::generate(std::vector<TCODBsp*> rooms, GameMap &map) {
+void RandomTunnelGenerator::generate(std::vector<Room> rooms, GameMap &map) {
     int n = rooms.size();
     auto sets = std::unordered_set<std::shared_ptr<std::unordered_set<int>>>();
     std::vector<std::shared_ptr<std::unordered_set<int>>> room_map = std::vector<std::shared_ptr<std::unordered_set<int>>>(n);
@@ -24,7 +24,7 @@ void RandomTunnelGenerator::generate(std::vector<TCODBsp*> rooms, GameMap &map) 
         int a = rng->get(0, n - 1);
         int b = rng->get(0, n - 1);
         if (a == b) continue;
-        TCODLine::init(rooms[a]->x + rooms[a]->w / 2, rooms[a]->y + rooms[a]->h / 2, rooms[b]->x + rooms[b]->w / 2, rooms[b]->y + rooms[b]->h / 2);
+        TCODLine::init(rooms[a].x + rooms[a].width / 2, rooms[a].y + rooms[a].height / 2, rooms[b].x + rooms[b].width / 2, rooms[b].y + rooms[b].height / 2);
         int x, y;
         while (!TCODLine::step(&x, &y)) {
             map.set(x, y, GameMap::EmptyTile());

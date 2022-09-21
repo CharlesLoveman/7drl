@@ -12,11 +12,12 @@
 #include "GameMap.hpp"
 #include "MapRenderer.hpp"
 #include "MovementManager.hpp"
+#include "PlayerUpdate.hpp"
 #include "RandomTunnelGenerator.hpp"
 #include "RenderEvent.hpp"
 #include "SlimeGenerator.hpp"
 #include "StaticSingleRenderer.hpp"
-
+#include "UpdateEvent.hpp"
 
 
 int main(int argc, char* argv[]) {
@@ -31,76 +32,26 @@ int main(int argc, char* argv[]) {
 
     auto m = std::make_shared<MovementManager>(*game_map);
     auto fov_manager = std::make_shared<FovManager>(*game_map);
+    auto player_update = std::make_shared<PlayerUpdate>();
     Entity player = Entity();
     player.subscribe(ssr);
     player.subscribe(m);
     player.subscribe(fov_manager);
-    for (int i = 0; i < game_map->height; ++i) {
-        for (int j = 0; j < game_map->width; ++j) {
-            if (game_map->walkable(j, i)) {
-                player.addComponent<Position>(j, i);
-                break;
-            }
-        }
-    }
+    player.subscribe(player_update);
+    player.addComponent<Position>(game_map->rooms[0].x + game_map->rooms[0].width / 2, game_map->rooms[0].y + game_map->rooms[0].height / 2);
     player.addComponent<Tile>(false, false, '@', Colour(0.0f, 0.0f, 0.0f), Colour(0.8f, 0.8f, 0.8f), Colour(0.0f, 0.0f, 0.0f), Colour(0.4f, 0.4f, 0.4f));
     player.addComponent<Fov>(8, true, FOV_RESTRICTIVE);
     RenderEvent render_player = RenderEvent(player);
     RenderEvent render_map = RenderEvent(*game_map);
     FovEvent fov_player = FovEvent(player);
+    UpdateEvent update_player = UpdateEvent(player);
 
     while (1) {
-        TCOD_console_clear(DisplayConsole::getConsole()->get());
+        player.raiseEvent(update_player);
         player.raiseEvent(fov_player);
+        TCOD_console_clear(DisplayConsole::getConsole()->get());
         game_map->raiseEvent(render_map);
         player.raiseEvent(render_player);
         DisplayConsole::getContext()->present(*DisplayConsole::getConsole());
-
-        SDL_Event event;
-        SDL_WaitEvent(nullptr);
-        while(SDL_PollEvent(&event)) {
-            DisplayConsole::getContext()->convert_event_coordinates(event);
-            switch (event.type) {
-                case SDL_QUIT:
-                    return 0;
-                case SDL_KEYDOWN:
-                    {
-                        int x = 0;
-                        int y = 0;
-                        switch (event.key.keysym.sym) {
-                            case SDLK_h:
-                                x -= 1;
-                                break;
-                            case SDLK_j:
-                                y += 1;
-                                break;
-                            case SDLK_k:
-                                y -= 1;
-                                break;
-                            case SDLK_l:
-                                x += 1;
-                                break;
-                            case SDLK_y:
-                                x -= 1;
-                                y -= 1;
-                                break;
-                            case SDLK_u:
-                                x += 1;
-                                y -= 1;
-                                break;
-                            case SDLK_b:
-                                x -= 1;
-                                y += 1;
-                                break;
-                            case SDLK_n:
-                                x += 1;
-                                y += 1;
-                                break;
-                        }
-                        MovementEvent move = MovementEvent(player, x, y);
-                        player.raiseEvent(move);
-                    }
-            }
-        }
     }
 }

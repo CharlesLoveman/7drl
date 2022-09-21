@@ -8,5 +8,6 @@ public:
     RenderEvent(Entity &e) : Event(e) {}
     ~RenderEvent() {}
     bool accept(Manager &m) override;
+    ManagerID id() override;
 };
 #endif

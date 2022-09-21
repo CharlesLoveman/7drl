@@ -8,5 +8,6 @@ public:
     FovEvent(Entity &e) : Event(e) {}
     ~FovEvent() {}
     bool accept(Manager &m) override;
+    ManagerID id() override;
 };
 #endif

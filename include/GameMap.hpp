@@ -21,6 +21,7 @@ public:
     std::vector<bool> seen;
     std::unique_ptr<TCODMap> map;
     std::unordered_set<std::unique_ptr<Entity>> entities;
+    std::vector<Room> rooms;
     bool in_bounds(int x, int y);
     bool walkable(int x, int y);
     bool visible(int x, int y);

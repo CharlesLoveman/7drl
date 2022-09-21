@@ -6,19 +6,13 @@ int Entity::getId() {
     return id;
 }
 
-bool Entity::hasComponent(int id) {
-    return components.contains(id);
-}
-
 void Entity::raiseEvent(Event &e) {
-    for (auto m : managers) {
-        if (e.accept(*m)) return;
-    }
-    throw "Unhandled Event!";
+    if (!managers.contains(e.id())) throw std::runtime_error("Unhandled Event!");
+    e.accept(*managers[e.id()]);
 }
 
 void Entity::subscribe(std::shared_ptr<Manager> m) {
-    managers.push_back(m);
+    managers.insert({m->id(), m});
 }
 
 Entity::Entity() {

@@ -10,7 +10,7 @@ public:
         renderer = _renderer;
     }
     ~SlimeGenerator() {}
-    std::unique_ptr<Entity> generate() override;
+    void generate(Room &room, std::unordered_set<std::unique_ptr<Entity>> &entities) override;
 private:
     std::shared_ptr<StaticSingleRenderer> renderer;
 };

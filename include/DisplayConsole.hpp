@@ -3,6 +3,7 @@
 
 #include <libtcod.hpp>
 #include <memory>
+#include <SDL.h>
 
 class DisplayConsole {
 public:
