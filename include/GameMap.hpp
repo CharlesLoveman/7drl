@@ -13,7 +13,7 @@
 
 class GameMap : public Entity {
 public:
-    GameMap(int width, int height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> room_generator, std::shared_ptr<EntityGenerator> entity_generator);
+    GameMap(int width, int height, std::shared_ptr<Renderer> renderer);
     ~GameMap();
     int width;
     int height;
@@ -25,7 +25,9 @@ public:
     bool in_bounds(int x, int y);
     bool walkable(int x, int y);
     bool visible(int x, int y);
+    bool blocked(int x, int y);
     void set(int x, int y, const Tile &tile);
+    void generate(std::shared_ptr<RoomGenerator> room_generator, std::shared_ptr<EntityGenerator> entity_generator);
     static const Tile &EmptyTile() {
         static Tile empty_tile = Tile(true, true, '.', {0.4f, 0.4f, 0.4f}, {0.03, 0.04, 0.2}, {0.2, 0.2, 0.2}, {0.01, 0.02, 0.1});
         return empty_tile;
@@ -38,9 +40,6 @@ public:
         static Tile wall_tile = Tile(false, false, ' ', {0, 0, 0}, {0.01, 0.02, 0.1}, {0, 0, 0}, {0.01, 0.02, 0.1});
         return wall_tile;
     }
-private:
-    std::shared_ptr<RoomGenerator> room_generator;
-    std::shared_ptr<EntityGenerator> entity_generator;
 };
 
 #endif

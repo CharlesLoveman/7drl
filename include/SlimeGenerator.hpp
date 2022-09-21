@@ -10,7 +10,7 @@ public:
         renderer = _renderer;
     }
     ~SlimeGenerator() {}
-    void generate(Room &room, std::unordered_set<std::unique_ptr<Entity>> &entities) override;
+    void generate(Room &room, GameMap &map) override;
 private:
     std::shared_ptr<StaticSingleRenderer> renderer;
 };

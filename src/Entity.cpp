@@ -7,8 +7,9 @@ int Entity::getId() {
 }
 
 void Entity::raiseEvent(Event &e) {
-    if (!managers.contains(e.id())) throw std::runtime_error("Unhandled Event!");
-    e.accept(*managers[e.id()]);
+    if (managers.contains(e.id())) {
+        e.accept(*managers[e.id()]);
+    }
 }
 
 void Entity::subscribe(std::shared_ptr<Manager> m) {

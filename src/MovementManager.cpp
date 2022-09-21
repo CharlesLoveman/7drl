@@ -5,7 +5,7 @@
 
 bool MovementManager::handleEvent(MovementEvent &event) {
     Position &position = event.entity.get<Position>();
-    if (map.walkable(position.x + event.x, position.y + event.y)) {
+    if (!map.blocked(position.x + event.x, position.y + event.y)) {
         position.x += event.x;
         position.y += event.y;
     }

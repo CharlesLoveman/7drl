@@ -26,9 +26,10 @@ int main(int argc, char* argv[]) {
     auto room_generator = std::make_shared<BasicRoomGenerator>();
     auto tunnel_generator = std::make_shared<RandomTunnelGenerator>();
     auto map_generator = std::make_shared<BSPRoomGenerator>(room_generator, tunnel_generator, 3, 10, 10, 1.5f, 1.5f);
-    auto ssr = std::make_shared<StaticSingleRenderer>(*DisplayConsole::getConsole());
+    auto game_map = std::make_shared<GameMap>(DisplayConsole::WIDTH, DisplayConsole::HEIGHT, map_renderer);
+    auto ssr = std::make_shared<StaticSingleRenderer>(*DisplayConsole::getConsole(), *game_map);
     auto slime_generator = std::make_shared<SlimeGenerator>(ssr);
-    auto game_map = std::make_shared<GameMap>(DisplayConsole::WIDTH, DisplayConsole::HEIGHT, map_renderer, map_generator, slime_generator);
+    game_map->generate(map_generator, slime_generator);
 
     auto m = std::make_shared<MovementManager>(*game_map);
     auto fov_manager = std::make_shared<FovManager>(*game_map);

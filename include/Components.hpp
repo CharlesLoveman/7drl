@@ -15,12 +15,14 @@ struct Component {
 };
 
 struct Position : Component {
-    Position(int _x, int _y) : Component() {
+    Position(int _x, int _y, bool _blocks = true) : Component() {
         x = _x;
         y = _y;
+        blocks = _blocks;
     }
     ~Position() {}
     int x, y;
+    bool blocks;
     static ComponentID id() {return ComponentID::POSITION;}
 };
 
