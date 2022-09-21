@@ -6,11 +6,15 @@ GameMap::~GameMap() {
     delete map;
 }
 
+#include <iostream>
 GameMap::GameMap(int _width, int _height, Renderer *renderer, RoomGenerator *_generator) : Entity() {
     width = _width;
     height = _height;
     map = new TCODMap(width, height);
     tiles = std::vector<Tile>(width * height, WallTile());
+    for (unsigned int i = 0; i < tiles.size(); ++i) {
+        tiles[i].bg.shift(0.1f);
+    }
     seen = std::vector<bool>(width * height, false);
     subscribe(renderer);
     generator = _generator;

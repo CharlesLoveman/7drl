@@ -3,6 +3,8 @@
 
 MapRenderer::MapRenderer(tcod::Console *console) : Renderer(console) {}
 
+#include <iostream>
+
 bool MapRenderer::handleEvent(RenderEvent &event) {
     GameMap *map = (GameMap*) event.entity;
     char s[2];
@@ -13,6 +15,8 @@ bool MapRenderer::handleEvent(RenderEvent &event) {
                 Tile t = map->tiles[i * map->width + j];
                 s[0] = t.ch;
                 tcod::print(*console, {j, i}, s, t.fg.toColor(), t.bg.toColor());
+                //std::cerr << "MapRenderer\n";
+                //std::cerr << (int) t.bg.r << ", " << (int) t.bg.g << ", " << (int) t.bg.b << "\n";
             } else if (map->seen[i * map->width + j]) {
                 Tile t = map->tiles[i * map->width + j];
                 s[0] = t.ch;

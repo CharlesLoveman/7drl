@@ -21,15 +21,15 @@ public:
     bool walkable(int x, int y);
     void set(int x, int y, const Tile &tile);
     static const Tile &EmptyTile() {
-        static Tile empty_tile = Tile(true, true, '.', {100, 100, 100}, {7, 11, 52}, {50, 50, 50}, {3, 5, 26});
+        static Tile empty_tile = Tile(true, true, '.', {0.4f, 0.4f, 0.4f}, {0.03, 0.04, 0.2}, {0.2, 0.2, 0.2}, {0.01, 0.02, 0.1});
         return empty_tile;
     }
     static const Tile &WallTile() {
-        static Tile wall_tile = Tile(false, false, '#', {50, 50, 50}, {146, 142, 133}, {25, 25, 25}, {73, 71, 66});
+        static Tile wall_tile = Tile(false, false, '#', {0.2, 0.2, 0.2}, {0.6, 0.6, 0.5}, {0.1, 0.1, 0.1}, {0.3, 0.3, 0.25});
         return wall_tile;
     }
     static const Tile &Shroud() {
-        static Tile wall_tile = Tile(false, false, ' ', {1, 1, 1}, {3, 5, 26}, {1, 1, 1}, {3, 5, 26});
+        static Tile wall_tile = Tile(false, false, ' ', {0, 0, 0}, {0.01, 0.02, 0.1}, {0, 0, 0}, {0.01, 0.02, 0.1});
         return wall_tile;
     }
 private:

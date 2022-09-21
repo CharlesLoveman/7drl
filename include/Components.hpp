@@ -1,6 +1,7 @@
 #ifndef __COMPONENTS_H_
 #define __COMPONENTS_H_
 
+#include "Colour.hpp"
 #include <libtcod.hpp>
 
 enum Components {
@@ -23,12 +24,9 @@ struct Position : Component {
     static int id() {return Components::POSITION;}
 };
 
-struct Colour {
-    uint8_t r, g, b;
-    TCOD_ColorRGB toColor() {
-        return TCOD_ColorRGB({r, g, b});
-    }
-};
+#include <cmath>
+
+
 
 struct Tile : Component {
     Tile(bool _walkable, bool _transparent, char _ch, Colour _fg, Colour _bg, Colour _dark_fg, Colour _dark_bg) : Component() {

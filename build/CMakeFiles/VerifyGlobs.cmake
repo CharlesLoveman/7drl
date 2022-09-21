@@ -7,6 +7,7 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/charlieloveman/Documen
 set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/BSPRoomGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BasicRoomGenerator.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/Colour.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Components.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Entity.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Event.hpp"
@@ -34,6 +35,7 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/charlieloveman/Documen
 set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/BSPRoomGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/Colour.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Entity.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Event.cpp"
   "/Users/charlieloveman/Documents/7drl/src/FovEvent.cpp"

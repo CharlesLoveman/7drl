@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
             }
         }
     }
-    player.addComponent(Components::TILE, new Tile(false, false, '@', {1, 1, 1}, {200, 200, 200}, {1, 1, 1}, {200, 200, 200}));
+    player.addComponent(Components::TILE, new Tile(false, false, '@', {0, 0, 0}, {0.8, 0.8, 0.8}, {0, 0, 0}, {0.4, 0.4, 0.4}));
     player.addComponent(Components::FOV, new Fov(8, true, FOV_RESTRICTIVE));
     RenderEvent render_player = RenderEvent(&player);
     RenderEvent render_map = RenderEvent(&game_map);

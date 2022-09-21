@@ -11,6 +11,11 @@
 },
 {
   "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/Colour.cpp.o -c /Users/charlieloveman/Documents/7drl/src/Colour.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/Colour.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
   "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/Entity.cpp.o -c /Users/charlieloveman/Documents/7drl/src/Entity.cpp",
   "file": "/Users/charlieloveman/Documents/7drl/src/Entity.cpp"
 },
