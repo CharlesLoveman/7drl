@@ -5,6 +5,7 @@
 #include "BasicRoomGenerator.hpp"
 #include "BSPRoomGenerator.hpp"
 #include "Components.hpp"
+#include "DisplayConsole.hpp"
 #include "Entity.hpp"
 #include "FovEvent.hpp"
 #include "FovManager.hpp"
@@ -13,37 +14,25 @@
 #include "MovementManager.hpp"
 #include "RandomTunnelGenerator.hpp"
 #include "RenderEvent.hpp"
+#include "SlimeGenerator.hpp"
 #include "StaticSingleRenderer.hpp"
 
-constexpr int WIDTH = 80;
-constexpr int HEIGHT = 25;
+
 
 int main(int argc, char* argv[]) {
-    auto console = tcod::Console{WIDTH, HEIGHT};
-
-    auto params = TCOD_ContextParams{};
-    params.tcod_version = TCOD_COMPILEDVERSION;
-    params.renderer_type = TCOD_RENDERER_SDL2;
-    params.console = console.get();
-    params.window_title = "Rougelike";
-    params.sdl_window_flags = SDL_WINDOW_RESIZABLE;
-    params.vsync = true;
-    params.argc = argc;
-    params.argv = argv;
-
-    auto context = tcod::Context(params);
-
-    auto map_renderer = std::make_shared<MapRenderer>(console);
+    DisplayConsole::initialise(argc, argv);
+    auto map_renderer = std::make_shared<MapRenderer>(*DisplayConsole::getConsole());
     auto room_generator = std::make_shared<BasicRoomGenerator>();
     auto tunnel_generator = std::make_shared<RandomTunnelGenerator>();
     auto map_generator = std::make_shared<BSPRoomGenerator>(room_generator, tunnel_generator, 3, 10, 10, 1.5f, 1.5f);
-    auto game_map = std::make_shared<GameMap>(WIDTH, HEIGHT, map_renderer, map_generator);
+    auto ssr = std::make_shared<StaticSingleRenderer>(*DisplayConsole::getConsole());
+    auto slime_generator = std::make_shared<SlimeGenerator>(ssr);
+    auto game_map = std::make_shared<GameMap>(DisplayConsole::WIDTH, DisplayConsole::HEIGHT, map_renderer, map_generator, slime_generator);
 
-    auto r = std::make_shared<StaticSingleRenderer>(console);
     auto m = std::make_shared<MovementManager>(*game_map);
     auto fov_manager = std::make_shared<FovManager>(*game_map);
     Entity player = Entity();
-    player.subscribe(r);
+    player.subscribe(ssr);
     player.subscribe(m);
     player.subscribe(fov_manager);
     for (int i = 0; i < game_map->height; ++i) {
@@ -61,16 +50,16 @@ int main(int argc, char* argv[]) {
     FovEvent fov_player = FovEvent(player);
 
     while (1) {
-        TCOD_console_clear(console.get());
+        TCOD_console_clear(DisplayConsole::getConsole()->get());
         player.raiseEvent(fov_player);
         game_map->raiseEvent(render_map);
         player.raiseEvent(render_player);
-        context.present(console);
+        DisplayConsole::getContext()->present(*DisplayConsole::getConsole());
 
         SDL_Event event;
         SDL_WaitEvent(nullptr);
         while(SDL_PollEvent(&event)) {
-            context.convert_event_coordinates(event);
+            DisplayConsole::getContext()->convert_event_coordinates(event);
             switch (event.type) {
                 case SDL_QUIT:
                     return 0;

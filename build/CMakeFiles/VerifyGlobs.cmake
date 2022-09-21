@@ -9,7 +9,9 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/BasicRoomGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Colour.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Components.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/DisplayConsole.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Entity.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/EntityGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Event.hpp"
   "/Users/charlieloveman/Documents/7drl/include/FovEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/FovManager.hpp"
@@ -22,6 +24,7 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/RenderEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Renderer.hpp"
   "/Users/charlieloveman/Documents/7drl/include/RoomGenerator.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/SlimeGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/StaticSingleRenderer.hpp"
   "/Users/charlieloveman/Documents/7drl/include/TunnelGenerator.hpp"
   )
@@ -47,6 +50,7 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/MovementManager.cpp"
   "/Users/charlieloveman/Documents/7drl/src/RandomTunnelGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/RenderEvent.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/SlimeGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/StaticSingleRenderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/main.cpp"
   )

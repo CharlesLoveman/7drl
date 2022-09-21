@@ -2,6 +2,7 @@
 #define __GAMEMAP_H_
 
 #include "Entity.hpp"
+#include "EntityGenerator.hpp"
 #include "Renderer.hpp"
 #include "RoomGenerator.hpp"
 #include <libtcod.hpp>
@@ -12,7 +13,7 @@
 
 class GameMap : public Entity {
 public:
-    GameMap(int width, int height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> generator);
+    GameMap(int width, int height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> room_generator, std::shared_ptr<EntityGenerator> entity_generator);
     ~GameMap();
     int width;
     int height;
@@ -37,7 +38,8 @@ public:
         return wall_tile;
     }
 private:
-    std::shared_ptr<RoomGenerator> generator;
+    std::shared_ptr<RoomGenerator> room_generator;
+    std::shared_ptr<EntityGenerator> entity_generator;
 };
 
 #endif

@@ -3,7 +3,6 @@
 
 #include "Manager.hpp"
 #include <libtcod.hpp>
-#include <memory>
 
 class Renderer : public Manager {
 public:

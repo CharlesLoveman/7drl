@@ -16,6 +16,7 @@ public:
     bool hasComponent(int id);
     void raiseEvent(Event &e);
     void subscribe(std::shared_ptr<Manager> m);
+
     template<typename T, typename... Args>
     void addComponent(Args... args) {
         components.insert({T::id(), std::make_unique<T>(args...)});

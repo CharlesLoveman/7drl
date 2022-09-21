@@ -5,7 +5,7 @@
 GameMap::~GameMap() {}
 
 #include <iostream>
-GameMap::GameMap(int _width, int _height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> _generator) : Entity() {
+GameMap::GameMap(int _width, int _height, std::shared_ptr<Renderer> renderer, std::shared_ptr<RoomGenerator> _room_generator, std::shared_ptr<EntityGenerator> _entity_generator) : Entity() {
     width = _width;
     height = _height;
     map = std::make_unique<TCODMap>(width, height);
@@ -16,8 +16,10 @@ GameMap::GameMap(int _width, int _height, std::shared_ptr<Renderer> renderer, st
     seen = std::vector<bool>(width * height, false);
     entities = std::unordered_set<std::unique_ptr<Entity>>();
     subscribe(renderer);
-    generator = _generator;
-    generator->generate(1, 1, width - 2, height - 2, *this);
+    room_generator = _room_generator;
+    room_generator->generate(1, 1, width - 2, height - 2, *this);
+    entity_generator = _entity_generator;
+    entities.insert(entity_generator->generate());
 }
 
 bool GameMap::in_bounds(int x, int y) {

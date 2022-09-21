@@ -2,6 +2,7 @@
 #define __STATICSINGLERENDERER_H_
 
 #include "Renderer.hpp"
+#include <memory>
 
 class StaticSingleRenderer : public Renderer {
 public:

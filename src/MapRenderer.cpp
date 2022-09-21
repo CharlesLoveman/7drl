@@ -23,5 +23,9 @@ bool MapRenderer::handleEvent(RenderEvent &event) {
 
         }
     }
+    for (auto &&e : map.entities) {
+        RenderEvent re = RenderEvent(*e);
+        e->raiseEvent(re);
+    }
     return true;
 }
