@@ -1,6 +1,7 @@
 #ifndef __MANAGER_H_
 #define __MANAGER_H_
 
+#include "AttackEvent.hpp"
 #include "FovEvent.hpp"
 #include "MovementEvent.hpp"
 #include "RenderEvent.hpp"
@@ -11,6 +12,7 @@ enum class ManagerID {
     MOVEMENT,
     FOV,
     UPDATE,
+    ATTACK,
 };
 
 class Manager {
@@ -20,6 +22,7 @@ public:
     virtual bool handleEvent(MovementEvent&) {return false;}
     virtual bool handleEvent(FovEvent&) {return false;}
     virtual bool handleEvent(UpdateEvent&) {return false;}
+    virtual bool handleEvent(AttackEvent&) {return false;}
     virtual ManagerID id() = 0;
 };
 

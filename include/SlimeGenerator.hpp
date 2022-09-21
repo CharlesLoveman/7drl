@@ -3,16 +3,12 @@
 
 #include "EntityGenerator.hpp"
 #include "StaticSingleRenderer.hpp"
+#include "BasicUpdate.hpp"
 
 class SlimeGenerator : public EntityGenerator {
 public:
-    SlimeGenerator(std::shared_ptr<StaticSingleRenderer> _renderer) : EntityGenerator() {
-        renderer = _renderer;
-    }
     ~SlimeGenerator() {}
-    void generate(Room &room, GameMap &map) override;
-private:
-    std::shared_ptr<StaticSingleRenderer> renderer;
+    void generate(Room &room) override;
 };
 
 #endif

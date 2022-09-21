@@ -3,6 +3,7 @@
 #include "Components.hpp"
 
 bool FovManager::handleEvent(FovEvent &event) {
+    GameMap &map = GameMap::getInstance();
     Position &position = event.entity.get<Position>();
     Fov &fov = event.entity.get<Fov>();
     map.map->computeFov(position.x, position.y, fov.radius, fov.light_walls, fov.algo);
@@ -12,4 +13,12 @@ bool FovManager::handleEvent(FovEvent &event) {
         }
     }
     return true;
+}
+
+std::shared_ptr<FovManager> FovManager::instance;
+std::shared_ptr<FovManager> FovManager::getInstance() {
+    if (!instance) {
+        instance = std::make_shared<FovManager>();
+    }
+    return instance;
 }

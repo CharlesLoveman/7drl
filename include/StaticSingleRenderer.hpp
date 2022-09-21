@@ -7,10 +7,11 @@
 
 class StaticSingleRenderer : public Renderer {
 public:
-    StaticSingleRenderer(tcod::Console &console, GameMap &map);
+    StaticSingleRenderer();
     bool handleEvent(RenderEvent&) override;
+    static std::shared_ptr<StaticSingleRenderer> getInstance();
 private:
-    GameMap &map;
+    static std::shared_ptr<StaticSingleRenderer> instance;
 };
 
 #endif

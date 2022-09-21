@@ -6,12 +6,13 @@
 
 class MovementManager : public Manager {
 public:
-    MovementManager(GameMap &game_map) : Manager(), map(game_map) {}
+    MovementManager() : Manager() {}
     virtual ~MovementManager() {}
     virtual bool handleEvent(MovementEvent&) override;
     ManagerID id() override {return ManagerID::MOVEMENT;}
+    static std::shared_ptr<MovementManager> getInstance();
 private:
-    GameMap &map;
+    static std::shared_ptr<MovementManager> instance;
 };
 
 #endif

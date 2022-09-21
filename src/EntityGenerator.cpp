@@ -2,10 +2,12 @@
 
 #include "GameMap.hpp"
 
-bool EntityGenerator::randPos(Room &room, GameMap &map, Point &position) {
+bool EntityGenerator::randPos(Room &room, Point &position) {
+    GameMap &map = GameMap::getInstance();
     for (int i = 0; i < MAX_TRIES; ++i) {
         position = room.random(); 
-        if (!map.blocked(position.x, position.y)) {
+        std::optional<std::reference_wrapper<Entity>> blocker;
+        if (!map.blocked(position.x, position.y, blocker)) {
             return true;
         }
     }

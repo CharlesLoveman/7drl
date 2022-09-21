@@ -9,7 +9,7 @@ class GameMap;
 class TunnelGenerator {
 public:
     virtual ~TunnelGenerator() {}
-    virtual void generate(std::vector<Room> rooms, GameMap &map) = 0;
+    virtual void generate(std::vector<Room> rooms) = 0;
 };
 
 #endif

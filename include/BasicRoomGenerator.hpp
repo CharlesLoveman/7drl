@@ -8,7 +8,7 @@ class BasicRoomGenerator : public RoomGenerator {
 public:
     BasicRoomGenerator();
     ~BasicRoomGenerator() {}
-    std::vector<Room> generate(int x, int y, int width, int height, GameMap &map) override;
+    std::vector<Room> generate(int x, int y, int width, int height) override;
 private:
     TCODRandom *rng;
 };

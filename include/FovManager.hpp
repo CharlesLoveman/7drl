@@ -6,12 +6,13 @@
 
 class FovManager : public Manager {
 public:
-    FovManager(GameMap &game_map) : Manager(), map(game_map) {}
+    FovManager() : Manager() {}
     virtual ~FovManager() {}
     virtual bool handleEvent(FovEvent&) override;
     ManagerID id() override {return ManagerID::FOV;}
+    static std::shared_ptr<FovManager> getInstance();
 private:
-    GameMap &map;
+    static std::shared_ptr<FovManager> instance;
 };
 
 #endif

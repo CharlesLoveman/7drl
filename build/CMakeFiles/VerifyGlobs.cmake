@@ -5,11 +5,13 @@ cmake_policy(SET CMP0009 NEW)
 # SOURCE_FILES at CMakeLists.txt:17 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/charlieloveman/Documents/7drl/include/*.hpp")
 set(OLD_GLOB
+  "/Users/charlieloveman/Documents/7drl/include/AttackEvent.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/AttackManager.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BSPRoomGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BasicRoomGenerator.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/BasicUpdate.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Colour.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Components.hpp"
-  "/Users/charlieloveman/Documents/7drl/include/DisplayConsole.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Entity.hpp"
   "/Users/charlieloveman/Documents/7drl/include/EntityGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Event.hpp"
@@ -39,8 +41,10 @@ endif()
 # SOURCE_FILES at CMakeLists.txt:17 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/charlieloveman/Documents/7drl/src/*.cpp")
 set(OLD_GLOB
+  "/Users/charlieloveman/Documents/7drl/src/AttackEvent.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BSPRoomGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/BasicUpdate.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Colour.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Entity.cpp"
   "/Users/charlieloveman/Documents/7drl/src/EntityGenerator.cpp"

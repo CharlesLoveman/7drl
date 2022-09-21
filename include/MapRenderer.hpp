@@ -2,12 +2,14 @@
 #define __MAPRENDERER_H_
 
 #include "Renderer.hpp"
+#include <memory>
 
 class MapRenderer : public Renderer {
 public:
-    MapRenderer(tcod::Console &console) : Renderer(console) {}
-    bool handleEvent(RenderEvent &event) override;
-    tcod::Console mapConsole;
+    ~MapRenderer() {}
+    bool handleEvent(RenderEvent&) override;
+    static std::shared_ptr<MapRenderer> getInstance();
+private:
+    static std::shared_ptr<MapRenderer> instance;
 };
-
 #endif

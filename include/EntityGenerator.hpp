@@ -9,8 +9,8 @@
 class EntityGenerator {
 public:
     virtual ~EntityGenerator() {}
-    virtual void generate(Room&, GameMap&) = 0;
-    bool randPos(Room&, GameMap&, Point&);
+    virtual void generate(Room&) = 0;
+    bool randPos(Room&, Point&);
 private:
     static constexpr int MAX_TRIES = 3;
 };

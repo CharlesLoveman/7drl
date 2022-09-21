@@ -4,8 +4,6 @@
 #include <libtcod.hpp>
 #include <vector>
 
-class GameMap;
-
 struct Point {
     int x, y;
 };
@@ -24,7 +22,7 @@ struct Room {
 class RoomGenerator {
 public:
     virtual ~RoomGenerator() {}
-    virtual std::vector<Room> generate(int x, int y, int width, int height, GameMap &map) = 0;
+    virtual std::vector<Room> generate(int x, int y, int width, int height) = 0;
 };
 
 #endif

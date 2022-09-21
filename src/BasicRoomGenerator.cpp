@@ -6,7 +6,8 @@ BasicRoomGenerator::BasicRoomGenerator() {
     rng = TCODRandom::getInstance();
 }
 
-std::vector<Room> BasicRoomGenerator::generate(int x, int y, int width, int height, GameMap &map) {
+std::vector<Room> BasicRoomGenerator::generate(int x, int y, int width, int height) {
+    GameMap &map = GameMap::getInstance();
     int start_x = rng->get(x, x + width - 3);
     int start_y = rng->get(y, y + height - 3);
     int room_width = rng->get(3, width - (start_x - x));
