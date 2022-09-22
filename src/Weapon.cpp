@@ -22,6 +22,8 @@ Shots::Shots(Entity &e, const Weapon &w, int x, int y) : weapon(w), entity(e) {
     }
 }
 
+#include <iostream>
+
 void Shots::fire() {
     Position &p = entity.get<Position>();
     Imath::Vec2<float> start (p.x, p.y);
@@ -41,7 +43,9 @@ void Shots::fire() {
         int x, y;
         TCODLine::init(p.x, p.y, dest_x, dest_y);
         bool miss = true;
-        while (!TCODLine::step(&x, &y) && pen && range) {
+        int tpen = pen;
+        int trange = range;
+        while (!TCODLine::step(&x, &y) && tpen && trange) {
             std::optional<std::reference_wrapper<Entity>> blocker;
             if (GameMap::getInstance().blocked(x, y, blocker)) {
                 if (rng->getFloat(0.0f, 1.0f) < acc) {
@@ -54,15 +58,15 @@ void Shots::fire() {
                         damage *= 2;
                     }
                     for (auto c : weapon.crests) {
-                        c->onHit(*this);
+                        c->onHit(*this, x, y, blocker);
                     }
                     if (blocker) {
                         (*blocker).get().raiseEvent<DamageEvent>(damage);
                     }
                 }
-                pen--;
+                tpen--;
             }
-            range--;
+            trange--;
         }
         if (miss) {
             for (auto c : weapon.crests) {

@@ -93,6 +93,8 @@ void GameMap::createPlayer() {
     player->addComponent<Weapons>();
     Weapons &weapons = player->get<Weapons>();
     weapons.weapons.push_back(std::make_unique<Weapon>("Fists", 0.9f, 0.1f, 0.0f, 1.42f, 1, 1, 4, 1));
+    weapons.weapons.push_back(std::make_unique<Weapon>("Shotgun", 0.9f, 0.1f, 0.5f, 100.0f, 50, 1, 1, 1));
+    weapons[1].crests.push_back(Leo::getInstance());
     player->raiseEvent<FovEvent>();
 }
 
