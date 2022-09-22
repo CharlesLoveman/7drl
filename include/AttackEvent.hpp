@@ -5,11 +5,14 @@
 
 class AttackEvent : public Event {
 public:
-    AttackEvent(Entity &self, Entity &other) : Event(self), target(other) {}
+    AttackEvent(Entity &self, Entity &other, int _weapon=0) : Event(self), target(other) {
+        weapon = _weapon;
+    }
     ~AttackEvent() {}
     bool accept(Manager &m) override;
     ManagerID id() override;
     Entity &target;
+    int weapon;
 };
 
 #endif

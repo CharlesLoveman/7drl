@@ -88,6 +88,14 @@ build CMakeFiles/Rougelike.dir/src/BSPRoomGenerator.cpp.o: CXX_COMPILER__Rougeli
   OBJECT_DIR = CMakeFiles/Rougelike.dir
   OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
 
+build CMakeFiles/Rougelike.dir/src/BasicAttack.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/BasicAttack.cpp || cmake_object_order_depends_target_Rougelike
+  DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
+  DEP_FILE = CMakeFiles/Rougelike.dir/src/BasicAttack.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
+  INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
+  OBJECT_DIR = CMakeFiles/Rougelike.dir
+  OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
+
 build CMakeFiles/Rougelike.dir/src/BasicRoomGenerator.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp || cmake_object_order_depends_target_Rougelike
   DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
   DEP_FILE = CMakeFiles/Rougelike.dir/src/BasicRoomGenerator.cpp.o.d
@@ -107,6 +115,30 @@ build CMakeFiles/Rougelike.dir/src/BasicUpdate.cpp.o: CXX_COMPILER__Rougelike_De
 build CMakeFiles/Rougelike.dir/src/Colour.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/Colour.cpp || cmake_object_order_depends_target_Rougelike
   DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
   DEP_FILE = CMakeFiles/Rougelike.dir/src/Colour.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
+  INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
+  OBJECT_DIR = CMakeFiles/Rougelike.dir
+  OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
+
+build CMakeFiles/Rougelike.dir/src/Crest.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/Crest.cpp || cmake_object_order_depends_target_Rougelike
+  DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
+  DEP_FILE = CMakeFiles/Rougelike.dir/src/Crest.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
+  INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
+  OBJECT_DIR = CMakeFiles/Rougelike.dir
+  OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
+
+build CMakeFiles/Rougelike.dir/src/DamageEvent.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/DamageEvent.cpp || cmake_object_order_depends_target_Rougelike
+  DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
+  DEP_FILE = CMakeFiles/Rougelike.dir/src/DamageEvent.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
+  INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
+  OBJECT_DIR = CMakeFiles/Rougelike.dir
+  OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
+
+build CMakeFiles/Rougelike.dir/src/DamageManager.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/DamageManager.cpp || cmake_object_order_depends_target_Rougelike
+  DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
+  DEP_FILE = CMakeFiles/Rougelike.dir/src/DamageManager.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
   INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
   OBJECT_DIR = CMakeFiles/Rougelike.dir
@@ -232,6 +264,14 @@ build CMakeFiles/Rougelike.dir/src/UpdateEvent.cpp.o: CXX_COMPILER__Rougelike_De
   OBJECT_DIR = CMakeFiles/Rougelike.dir
   OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
 
+build CMakeFiles/Rougelike.dir/src/Weapon.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/Weapon.cpp || cmake_object_order_depends_target_Rougelike
+  DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
+  DEP_FILE = CMakeFiles/Rougelike.dir/src/Weapon.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a
+  INCLUDES = -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2
+  OBJECT_DIR = CMakeFiles/Rougelike.dir
+  OBJECT_FILE_DIR = CMakeFiles/Rougelike.dir/src
+
 build CMakeFiles/Rougelike.dir/src/main.cpp.o: CXX_COMPILER__Rougelike_Debug /Users/charlieloveman/Documents/7drl/src/main.cpp || cmake_object_order_depends_target_Rougelike
   DEFINES = -DLIBTCOD_STATIC -DTCOD_NO_THREADS
   DEP_FILE = CMakeFiles/Rougelike.dir/src/main.cpp.o.d
@@ -248,7 +288,7 @@ build CMakeFiles/Rougelike.dir/src/main.cpp.o: CXX_COMPILER__Rougelike_Debug /Us
 #############################################
 # Link the executable bin/Rougelike
 
-build bin/Rougelike: CXX_EXECUTABLE_LINKER__Rougelike_Debug CMakeFiles/Rougelike.dir/src/AttackEvent.cpp.o CMakeFiles/Rougelike.dir/src/BSPRoomGenerator.cpp.o CMakeFiles/Rougelike.dir/src/BasicRoomGenerator.cpp.o CMakeFiles/Rougelike.dir/src/BasicUpdate.cpp.o CMakeFiles/Rougelike.dir/src/Colour.cpp.o CMakeFiles/Rougelike.dir/src/Entity.cpp.o CMakeFiles/Rougelike.dir/src/EntityGenerator.cpp.o CMakeFiles/Rougelike.dir/src/Event.cpp.o CMakeFiles/Rougelike.dir/src/FovEvent.cpp.o CMakeFiles/Rougelike.dir/src/FovManager.cpp.o CMakeFiles/Rougelike.dir/src/GameMap.cpp.o CMakeFiles/Rougelike.dir/src/MapRenderer.cpp.o CMakeFiles/Rougelike.dir/src/MovementEvent.cpp.o CMakeFiles/Rougelike.dir/src/MovementManager.cpp.o CMakeFiles/Rougelike.dir/src/PlayerUpdate.cpp.o CMakeFiles/Rougelike.dir/src/RandomTunnelGenerator.cpp.o CMakeFiles/Rougelike.dir/src/RenderEvent.cpp.o CMakeFiles/Rougelike.dir/src/SlimeGenerator.cpp.o CMakeFiles/Rougelike.dir/src/StaticSingleRenderer.cpp.o CMakeFiles/Rougelike.dir/src/UpdateEvent.cpp.o CMakeFiles/Rougelike.dir/src/main.cpp.o | vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a vcpkg_installed/arm64-osx/debug/lib/libSDL2maind.a vcpkg_installed/arm64-osx/debug/lib/libtcod.a vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a vcpkg_installed/arm64-osx/debug/lib/libz.a vcpkg_installed/arm64-osx/debug/lib/libglad.a vcpkg_installed/arm64-osx/debug/lib/liblodepng-c.a vcpkg_installed/arm64-osx/debug/lib/libutf8proc.a
+build bin/Rougelike: CXX_EXECUTABLE_LINKER__Rougelike_Debug CMakeFiles/Rougelike.dir/src/AttackEvent.cpp.o CMakeFiles/Rougelike.dir/src/BSPRoomGenerator.cpp.o CMakeFiles/Rougelike.dir/src/BasicAttack.cpp.o CMakeFiles/Rougelike.dir/src/BasicRoomGenerator.cpp.o CMakeFiles/Rougelike.dir/src/BasicUpdate.cpp.o CMakeFiles/Rougelike.dir/src/Colour.cpp.o CMakeFiles/Rougelike.dir/src/Crest.cpp.o CMakeFiles/Rougelike.dir/src/DamageEvent.cpp.o CMakeFiles/Rougelike.dir/src/DamageManager.cpp.o CMakeFiles/Rougelike.dir/src/Entity.cpp.o CMakeFiles/Rougelike.dir/src/EntityGenerator.cpp.o CMakeFiles/Rougelike.dir/src/Event.cpp.o CMakeFiles/Rougelike.dir/src/FovEvent.cpp.o CMakeFiles/Rougelike.dir/src/FovManager.cpp.o CMakeFiles/Rougelike.dir/src/GameMap.cpp.o CMakeFiles/Rougelike.dir/src/MapRenderer.cpp.o CMakeFiles/Rougelike.dir/src/MovementEvent.cpp.o CMakeFiles/Rougelike.dir/src/MovementManager.cpp.o CMakeFiles/Rougelike.dir/src/PlayerUpdate.cpp.o CMakeFiles/Rougelike.dir/src/RandomTunnelGenerator.cpp.o CMakeFiles/Rougelike.dir/src/RenderEvent.cpp.o CMakeFiles/Rougelike.dir/src/SlimeGenerator.cpp.o CMakeFiles/Rougelike.dir/src/StaticSingleRenderer.cpp.o CMakeFiles/Rougelike.dir/src/UpdateEvent.cpp.o CMakeFiles/Rougelike.dir/src/Weapon.cpp.o CMakeFiles/Rougelike.dir/src/main.cpp.o | vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a vcpkg_installed/arm64-osx/debug/lib/libSDL2maind.a vcpkg_installed/arm64-osx/debug/lib/libtcod.a vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a vcpkg_installed/arm64-osx/debug/lib/libz.a vcpkg_installed/arm64-osx/debug/lib/libglad.a vcpkg_installed/arm64-osx/debug/lib/liblodepng-c.a vcpkg_installed/arm64-osx/debug/lib/libutf8proc.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LINK_LIBRARIES = vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a  vcpkg_installed/arm64-osx/debug/lib/libSDL2maind.a  vcpkg_installed/arm64-osx/debug/lib/libtcod.a  vcpkg_installed/arm64-osx/debug/lib/libSDL2d.a  -lm  -liconv  -Wl,-framework,CoreVideo  -Wl,-framework,Cocoa  -Wl,-framework,IOKit  -Wl,-framework,ForceFeedback  -Wl,-framework,Carbon  -Wl,-framework,CoreAudio  -Wl,-framework,AudioToolbox  -Wl,-framework,AVFoundation  -Wl,-framework,Foundation  -Wl,-weak_framework,GameController  -Wl,-weak_framework,Metal  -Wl,-weak_framework,QuartzCore  -Wl,-weak_framework,CoreHaptics  vcpkg_installed/arm64-osx/debug/lib/libz.a  vcpkg_installed/arm64-osx/debug/lib/libglad.a  vcpkg_installed/arm64-osx/debug/lib/liblodepng-c.a  vcpkg_installed/arm64-osx/debug/lib/libutf8proc.a
   OBJECT_DIR = CMakeFiles/Rougelike.dir

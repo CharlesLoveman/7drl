@@ -6,8 +6,7 @@
 
 bool BasicUpdate::handleEvent(UpdateEvent &event) {
     TCODRandom *rng = TCODRandom::getInstance();
-    MovementEvent move = MovementEvent(event.entity, rng->get(-1,1), rng->get(-1,1));
-    event.entity.raiseEvent(move);
+    event.entity.raiseEvent<MovementEvent>(rng->get(-1,1), rng->get(-1,1));
     return true;
 }
 

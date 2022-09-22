@@ -154,3 +154,13 @@ Description: Support for REXPaint files and TCODZip archives.
 Type: Port
 Status: install ok installed
 
+Package: imath
+Version: 3.1.5
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 957348ff18e8972b5948ca1e7b5bd958b65a9cdfed59688b60e4cbbc707f3b44
+Description: Imath is a C++ and Python library of 2D and 3D vector, matrix, and math operations for computer graphics.
+Type: Port
+Status: install ok installed
+

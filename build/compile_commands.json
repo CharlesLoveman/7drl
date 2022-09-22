@@ -11,6 +11,11 @@
 },
 {
   "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/BasicAttack.cpp.o -c /Users/charlieloveman/Documents/7drl/src/BasicAttack.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/BasicAttack.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
   "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/BasicRoomGenerator.cpp.o -c /Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp",
   "file": "/Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp"
 },
@@ -23,6 +28,21 @@
   "directory": "/Users/charlieloveman/Documents/7drl/build",
   "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/Colour.cpp.o -c /Users/charlieloveman/Documents/7drl/src/Colour.cpp",
   "file": "/Users/charlieloveman/Documents/7drl/src/Colour.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/Crest.cpp.o -c /Users/charlieloveman/Documents/7drl/src/Crest.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/Crest.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/DamageEvent.cpp.o -c /Users/charlieloveman/Documents/7drl/src/DamageEvent.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/DamageEvent.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/DamageManager.cpp.o -c /Users/charlieloveman/Documents/7drl/src/DamageManager.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/DamageManager.cpp"
 },
 {
   "directory": "/Users/charlieloveman/Documents/7drl/build",
@@ -98,6 +118,11 @@
   "directory": "/Users/charlieloveman/Documents/7drl/build",
   "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/UpdateEvent.cpp.o -c /Users/charlieloveman/Documents/7drl/src/UpdateEvent.cpp",
   "file": "/Users/charlieloveman/Documents/7drl/src/UpdateEvent.cpp"
+},
+{
+  "directory": "/Users/charlieloveman/Documents/7drl/build",
+  "command": "/usr/bin/clang++ -DLIBTCOD_STATIC -DTCOD_NO_THREADS -I/Users/charlieloveman/Documents/7drl/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include -isystem /Users/charlieloveman/Documents/7drl/build/vcpkg_installed/arm64-osx/include/SDL2 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wextra -std=gnu++2a -o CMakeFiles/Rougelike.dir/src/Weapon.cpp.o -c /Users/charlieloveman/Documents/7drl/src/Weapon.cpp",
+  "file": "/Users/charlieloveman/Documents/7drl/src/Weapon.cpp"
 },
 {
   "directory": "/Users/charlieloveman/Documents/7drl/build",

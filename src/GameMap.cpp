@@ -1,5 +1,8 @@
 #include "GameMap.hpp"
 
+#include "BasicAttack.hpp"
+#include "Crest.hpp"
+#include "DamageManager.hpp"
 #include "FovManager.hpp"
 #include "MapRenderer.hpp"
 #include "MovementManager.hpp"
@@ -81,33 +84,32 @@ void GameMap::createPlayer() {
     player->subscribe(MovementManager::getInstance());
     player->subscribe(FovManager::getInstance());
     player->subscribe(PlayerUpdate::getInstance());
+    player->subscribe(BasicAttack::getInstance());
+    player->subscribe(DamageManager::getInstance());
     player->addComponent<Position>(rooms[0].x + rooms[0].width / 2, rooms[0].y + rooms[0].height / 2);
     player->addComponent<Tile>(false, false, '@', Colour(0.0f, 0.0f, 0.0f), Colour(0.8f, 0.8f, 0.8f), Colour(0.0f, 0.0f, 0.0f), Colour(0.4f, 0.4f, 0.4f));
     player->addComponent<Fov>(8, true, FOV_RESTRICTIVE);
-    FovEvent fov_player = FovEvent(*player);
-    player->raiseEvent(fov_player);
+    player->addComponent<StatBlock>(20, 10);
+    player->addComponent<Weapons>();
+    Weapons &weapons = player->get<Weapons>();
+    weapons.weapons.push_back(std::make_unique<Weapon>(0.9f, 0.1f, 0.0f, 1.0f, 1, 1, 4, 1));
+    player->raiseEvent<FovEvent>();
 }
 
 void GameMap::render(tcod::Console *console) {
-    RenderEvent render_map = RenderEvent(*this, console);
-    raiseEvent(render_map);
+    raiseEvent<RenderEvent>(console);
     for (auto &&e : entities) {
-        RenderEvent render_e = RenderEvent(*e, console);
-        e->raiseEvent(render_e);
+        e->raiseEvent<RenderEvent>(console);
     }
-    RenderEvent render_player = RenderEvent(*player, console);
-    player->raiseEvent(render_player);
+    player->raiseEvent<RenderEvent>(console);
 }
 
 void GameMap::update() {
-    UpdateEvent update_player = UpdateEvent(*player);
-    player->raiseEvent(update_player);
+    player->raiseEvent<UpdateEvent>();
 
-    FovEvent fov_player = FovEvent(*player);
-    player->raiseEvent(fov_player);
+    player->raiseEvent<FovEvent>();
 
     for (auto &&e : GameMap::getInstance().entities) {
-        UpdateEvent update = UpdateEvent(*e);
-        e->raiseEvent(update);
+        e->raiseEvent<UpdateEvent>();
     }
 }

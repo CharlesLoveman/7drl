@@ -45,8 +45,7 @@ bool PlayerUpdate::handleEvent(UpdateEvent &e) {
                             y += 1;
                             break;
                     }
-                    MovementEvent move = MovementEvent(e.entity, x, y);
-                    e.entity.raiseEvent(move);
+                    e.entity.raiseEvent<MovementEvent>(x, y);
                     finished = true;
                 }
             }

@@ -8,10 +8,14 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/AttackEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/AttackManager.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BSPRoomGenerator.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/BasicAttack.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BasicRoomGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/BasicUpdate.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Colour.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Components.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/Crest.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/DamageEvent.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/DamageManager.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Entity.hpp"
   "/Users/charlieloveman/Documents/7drl/include/EntityGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/Event.hpp"
@@ -32,6 +36,7 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/include/TunnelGenerator.hpp"
   "/Users/charlieloveman/Documents/7drl/include/UpdateEvent.hpp"
   "/Users/charlieloveman/Documents/7drl/include/UpdateManager.hpp"
+  "/Users/charlieloveman/Documents/7drl/include/Weapon.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -43,9 +48,13 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/charlieloveman/Documen
 set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/AttackEvent.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BSPRoomGenerator.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/BasicAttack.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BasicRoomGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/BasicUpdate.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Colour.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/Crest.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/DamageEvent.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/DamageManager.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Entity.cpp"
   "/Users/charlieloveman/Documents/7drl/src/EntityGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/Event.cpp"
@@ -61,6 +70,7 @@ set(OLD_GLOB
   "/Users/charlieloveman/Documents/7drl/src/SlimeGenerator.cpp"
   "/Users/charlieloveman/Documents/7drl/src/StaticSingleRenderer.cpp"
   "/Users/charlieloveman/Documents/7drl/src/UpdateEvent.cpp"
+  "/Users/charlieloveman/Documents/7drl/src/Weapon.cpp"
   "/Users/charlieloveman/Documents/7drl/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

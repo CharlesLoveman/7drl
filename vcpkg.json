@@ -12,6 +12,7 @@
           "x11"
         ],
         "platform": "linux"
-      }
+      },
+      "imath"
     ]
   }

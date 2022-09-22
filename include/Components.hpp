@@ -2,12 +2,16 @@
 #define __COMPONENTS_H_
 
 #include "Colour.hpp"
+#include "Weapon.hpp"
 #include <libtcod.hpp>
+#include <vector>
 
 enum class ComponentID {
     POSITION,
     TILE,
     FOV,
+    STATS,
+    WEAPONS,
 };
 
 struct Component {
@@ -50,6 +54,24 @@ struct Fov : Component {
     int radius;
     bool light_walls;
     TCOD_fov_algorithm_t algo;
+};
+
+struct StatBlock : Component {
+    StatBlock(int _hp, int _def) : Component() {
+        hp = _hp;
+        def = _def;
+    }
+    ~StatBlock() {}
+    static ComponentID id() {return ComponentID::STATS;}
+    int hp, def; 
+};
+
+struct Weapons : Component {
+    Weapons() : Component() {}
+    ~Weapons() {}
+    static ComponentID id() {return ComponentID::WEAPONS;}
+    std::vector<std::unique_ptr<Weapon>> weapons;
+    Weapon& operator[](std::size_t idx) {return *weapons[idx];}
 };
 
 #endif

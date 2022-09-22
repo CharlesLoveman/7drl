@@ -13,8 +13,16 @@ public:
     Entity();
     ~Entity();
     int getId();
-    void raiseEvent(Event &e);
     void subscribe(std::shared_ptr<Manager> m);
+
+    template<typename T, typename... Args>
+    void raiseEvent(Args... args) {
+        T e = T(*this, args...);
+        if (managers.contains(e.id())) {
+            e.accept(*managers[e.id()]);
+        }
+    }
+
     template<typename T, typename... Args>
     void addComponent(Args... args) {
         components.insert({T::id(), std::make_unique<T>(args...)});
