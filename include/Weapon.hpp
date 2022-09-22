@@ -2,6 +2,7 @@
 #define __WEAPON_H_
 
 #include <memory>
+#include <string>
 #include <vector>
 
 class Crest;
@@ -22,7 +23,8 @@ public:
 class Entity;
 class Weapon {
 public:
-    Weapon(float _acc, float _crit, float _spread, float _range, int _shots, int _numDice, int _diceSize, int _pen) {
+    Weapon(std::string _name, float _acc, float _crit, float _spread, float _range, int _shots, int _numDice, int _diceSize, int _pen) {
+        name = _name;
         acc = _acc;
         crit = _crit;
         spread = _spread;
@@ -35,8 +37,11 @@ public:
     }
     ~Weapon() {}
     std::unique_ptr<Shots> generate(Entity& entity, int x, int y) const;
-    float acc, crit, spread;
-    int shots, range, numDice, diceSize, pen;
+    std::string describe();
+    std::string verbose();
+    std::string name;
+    float acc, crit, spread, range;
+    int shots, numDice, diceSize, pen;
     std::vector<std::shared_ptr<Crest>> crests;
 };
 

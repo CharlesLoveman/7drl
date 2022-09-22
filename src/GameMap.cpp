@@ -92,7 +92,7 @@ void GameMap::createPlayer() {
     player->addComponent<StatBlock>(20, 10);
     player->addComponent<Weapons>();
     Weapons &weapons = player->get<Weapons>();
-    weapons.weapons.push_back(std::make_unique<Weapon>(0.9f, 0.1f, 0.0f, 1.0f, 1, 1, 4, 1));
+    weapons.weapons.push_back(std::make_unique<Weapon>("Fists", 0.9f, 0.1f, 0.0f, 1.42f, 1, 1, 4, 1));
     player->raiseEvent<FovEvent>();
 }
 

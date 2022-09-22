@@ -2,6 +2,7 @@
 #define __CREST_H_
 
 #include <memory>
+#include <string>
 
 class Shots;
 class Crest {
@@ -11,6 +12,7 @@ public:
     virtual void generate(Shots&) {};
     virtual void onHit(Shots&) {};
     virtual void onMiss(Shots&) {};
+    virtual std::string describe() = 0;
 };
 
 class Aries : public Crest {
@@ -18,6 +20,7 @@ public:
     Aries() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Aries> getInstance();
+    std::string describe() override {return "Aries";}
 private:
     static std::shared_ptr<Aries> instance;
 };
@@ -27,6 +30,7 @@ public:
     Aquarius() : Crest() {}
     void onHit(Shots&) override;
     static std::shared_ptr<Aquarius> getInstance();
+    std::string describe() override {return "Aquarius";}
 private:
     static std::shared_ptr<Aquarius> instance;
 };
@@ -36,6 +40,7 @@ public:
     Cancer() : Crest() {}
     void onHit(Shots&) override;
     static std::shared_ptr<Cancer> getInstance();
+    std::string describe() override {return "Cancer";}
 private:
     static std::shared_ptr<Cancer> instance;
 };
@@ -45,6 +50,7 @@ public:
     Capricorn() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Capricorn> getInstance();
+    std::string describe() override {return "Capricorn";}
 private:
     static std::shared_ptr<Capricorn> instance;
 };
@@ -54,6 +60,7 @@ public:
     Gemini() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Gemini> getInstance();
+    std::string describe() override {return "Gemini";}
 private:
     static std::shared_ptr<Gemini> instance;
 };
@@ -64,6 +71,7 @@ public:
     void generate(Shots&) override;
     void onHit(Shots&) override;
     static std::shared_ptr<Leo> getInstance();
+    std::string describe() override {return "Leo";}
 private:
     static std::shared_ptr<Leo> instance;
 };
@@ -73,6 +81,7 @@ public:
     Libra() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Libra> getInstance();
+    std::string describe() override {return "Libra";}
 private:
     static std::shared_ptr<Libra> instance;
 };
@@ -82,6 +91,7 @@ public:
     Ophiucus() : Crest() {}
     void onHit(Shots&) override;
     static std::shared_ptr<Ophiucus> getInstance();
+    std::string describe() override {return "Ophiucus";}
 private:
     static std::shared_ptr<Ophiucus> instance;
 };
@@ -91,6 +101,7 @@ public:
     Pisces() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Pisces> getInstance();
+    std::string describe() override {return "Pisces";}
 private:
     static std::shared_ptr<Pisces> instance;
 };
@@ -100,6 +111,7 @@ public:
     Sagittarius() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Sagittarius> getInstance();
+    std::string describe() override {return "Sagittarius";}
 private:
     static std::shared_ptr<Sagittarius> instance;
 };
@@ -109,6 +121,7 @@ public:
     Scorpio() : Crest() {}
     void onHit(Shots&) override;
     static std::shared_ptr<Scorpio> getInstance();
+    std::string describe() override {return "Scorpio";}
 private:
     static std::shared_ptr<Scorpio> instance;
 };
@@ -118,6 +131,7 @@ public:
     Taurus() : Crest() {}
     void generate(Shots&) override;
     static std::shared_ptr<Taurus> getInstance();
+    std::string describe() override {return "Taurus";}
 private:
     static std::shared_ptr<Taurus> instance;
 };
@@ -127,6 +141,7 @@ public:
     Virgo() : Crest() {}
     void onHit(Shots&) override;
     static std::shared_ptr<Virgo> getInstance();
+    std::string describe() override {return "Virgo";}
 private:
     static std::shared_ptr<Virgo> instance;
 };

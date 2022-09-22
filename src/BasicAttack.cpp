@@ -5,8 +5,11 @@
 
 bool BasicAttack::handleEvent(AttackEvent &event) {
     Weapons &weapons = event.entity.get<Weapons>();
-    Position &p = event.target.get<Position>();
-    weapons[event.weapon].generate(event.entity, p.x, p.y)->fire();
+    int weapon = 0;
+    if (event.weapon < weapons.weapons.size()) {
+        weapon = event.weapon;
+    }
+    weapons[weapon].generate(event.entity, event.target_x, event.target_y)->fire();
     return true;
 }
 

@@ -75,3 +75,11 @@ void Shots::fire() {
 std::unique_ptr<Shots> Weapon::generate(Entity &e, int x, int y) const {
     return std::make_unique<Shots>(e, *this, x, y);
 }
+
+std::string Weapon::describe() {
+    return name;
+}
+
+std::string Weapon::verbose() {
+    return name;
+}

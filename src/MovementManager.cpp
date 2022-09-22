@@ -11,7 +11,7 @@ bool MovementManager::handleEvent(MovementEvent &event) {
         position.x += event.x;
         position.y += event.y;
     } else if (blocker) {
-        event.entity.raiseEvent<AttackEvent>(*blocker);
+        event.entity.raiseEvent<AttackEvent>(position.x + event.x, position.y + event.y);
     }
     return true;
 }
