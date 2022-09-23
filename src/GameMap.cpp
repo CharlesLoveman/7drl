@@ -18,6 +18,7 @@ GameMap::GameMap(int _width, int _height) : Entity() {
     height = _height;
     map = std::make_unique<TCODMap>(width, height);
     subscribe(MapRenderer::getInstance());
+    mapConsole = new tcod::Console{width, height};
 }
 
 GameMap& GameMap::getInstance() {
@@ -93,17 +94,22 @@ void GameMap::createPlayer() {
     player->addComponent<Weapons>();
     Weapons &weapons = player->get<Weapons>();
     weapons.weapons.push_back(std::make_unique<Weapon>("Fists", 0.9f, 0.1f, 0.0f, 1.42f, 1, 1, 4, 1));
-    weapons.weapons.push_back(std::make_unique<Weapon>("Shotgun", 0.9f, 0.1f, 0.5f, 100.0f, 50, 1, 1, 1));
+    weapons.weapons.push_back(std::make_unique<Weapon>("Shotgun", 0.9f, 0.1f, 0.2f, 10.0f, 5, 1, 4, 1));
     weapons[1].crests.push_back(Leo::getInstance());
     player->raiseEvent<FovEvent>();
 }
 
 void GameMap::render(tcod::Console *console) {
-    raiseEvent<RenderEvent>(console);
+    raiseEvent<RenderEvent>(mapConsole);
     for (auto &&e : entities) {
-        e->raiseEvent<RenderEvent>(console);
+        e->raiseEvent<RenderEvent>(mapConsole);
     }
-    player->raiseEvent<RenderEvent>(console);
+    player->raiseEvent<RenderEvent>(mapConsole);
+    blit(console);
+}
+
+void GameMap::blit(tcod::Console *console) {
+    TCOD_console_blit(mapConsole->get(), 0, 0, width, height, console->get(), 0, 0, 1, 1);
 }
 
 void GameMap::update() {

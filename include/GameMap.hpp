@@ -32,6 +32,7 @@ public:
     void createPlayer();
     void update();
     void render(tcod::Console *console);
+    void blit(tcod::Console *console);
     static GameMap &getInstance();
     static const Tile &EmptyTile() {
         static Tile empty_tile = Tile(true, true, '.', {0.4f, 0.4f, 0.4f}, {0.03, 0.04, 0.2}, {0.2, 0.2, 0.2}, {0.01, 0.02, 0.1});
@@ -47,6 +48,7 @@ public:
     }
 private:
     static GameMap *instance;
+    tcod::Console *mapConsole;
 };
 
 #endif

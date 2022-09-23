@@ -60,7 +60,7 @@ start:
                         default:
 render:
                             TCOD_console_clear(console->get());
-                            GameMap::getInstance().render(console);
+                            GameMap::getInstance().blit(console);
                             context->present(*console);
                             goto start;
                     }
@@ -85,7 +85,7 @@ bool PlayerUpdate::fireWeapon(std::size_t weapon, Entity &player) {
     Imath::Vec2<float> u(x, y);
     while (1) {
         TCOD_console_clear(console->get());
-        GameMap::getInstance().render(console);
+        GameMap::getInstance().blit(console);
         Imath::Vec2<float> v(x, y);
         float dist = (v - u).length();
         TCODLine::init(p.x, p.y, x, y);

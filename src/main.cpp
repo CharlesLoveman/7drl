@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
 
     auto context = tcod::Context(params);
     PlayerUpdate::initialise(&console, &context);
+    Shots::initialise(&console, &context);
 
     auto room_generator = std::make_shared<BasicRoomGenerator>();
     auto tunnel_generator = std::make_shared<RandomTunnelGenerator>();

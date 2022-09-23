@@ -12,7 +12,7 @@ public:
     Crest() {}
     virtual ~Crest() {}
     virtual void generate(Shots&) {};
-    virtual void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) {};
+    virtual void onHit(Shots&, int, int, std::optional<std::reference_wrapper<Entity>>, int) {};
     virtual void onMiss(Shots&) {};
     virtual std::string describe() = 0;
 };
@@ -30,7 +30,7 @@ private:
 class Aquarius : public Crest {
 public:
     Aquarius() : Crest() {}
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Aquarius> getInstance();
     std::string describe() override {return "Aquarius";}
 private:
@@ -40,7 +40,7 @@ private:
 class Cancer : public Crest {
 public:
     Cancer() : Crest() {}
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Cancer> getInstance();
     std::string describe() override {return "Cancer";}
 private:
@@ -71,7 +71,7 @@ class Leo : public Crest {
 public:
     Leo() : Crest() {}
     void generate(Shots&) override;
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Leo> getInstance();
     std::string describe() override {return "Leo";}
 private:
@@ -91,7 +91,7 @@ private:
 class Ophiucus : public Crest {
 public:
     Ophiucus() : Crest() {}
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Ophiucus> getInstance();
     std::string describe() override {return "Ophiucus";}
 private:
@@ -121,7 +121,7 @@ private:
 class Scorpio : public Crest {
 public:
     Scorpio() : Crest() {}
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Scorpio> getInstance();
     std::string describe() override {return "Scorpio";}
 private:
@@ -141,7 +141,7 @@ private:
 class Virgo : public Crest {
 public:
     Virgo() : Crest() {}
-    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit) override;
+    void onHit(Shots&, int x, int y, std::optional<std::reference_wrapper<Entity>> hit, int dmg) override;
     static std::shared_ptr<Virgo> getInstance();
     std::string describe() override {return "Virgo";}
 private:
