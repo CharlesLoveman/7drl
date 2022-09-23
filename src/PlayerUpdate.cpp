@@ -7,8 +7,20 @@
 
 tcod::Console *PlayerUpdate::console;
 tcod::Context *PlayerUpdate::context;
+tcod::Console *PlayerUpdate::player_console;
+int PlayerUpdate::height;
+int PlayerUpdate::width;
+Colour PlayerUpdate::key = Colour(0.0, 0.0, 0.0);
+
+void PlayerUpdate::render() {
+    GameMap::getInstance().blit(console);
+    TCOD_ColorRGB k = key.toColor();
+    TCOD_console_blit_key_color(player_console->get(), 0, 0, width, height, console->get(), 0, 0, 1, 1, &k);
+    context->present(*console);
+}
 
 bool PlayerUpdate::handleEvent(UpdateEvent &e) {
+    player_console->clear();
     while(1) {
 start:
         SDL_Event event;
@@ -54,14 +66,12 @@ start:
                             return true;
                         case SDLK_1:
                             if (fireWeapon(1, e.entity)) return true;
-                            goto render; 
+                            render();
+                            goto start; 
                         case SDLK_2:
                             if (fireWeapon(2, e.entity)) return true;
                         default:
-render:
-                            TCOD_console_clear(console->get());
-                            GameMap::getInstance().blit(console);
-                            context->present(*console);
+                            render();
                             goto start;
                     }
                     e.entity.raiseEvent<MovementEvent>(x, y);
@@ -84,17 +94,16 @@ bool PlayerUpdate::fireWeapon(std::size_t weapon, Entity &player) {
     if (weapon < w.weapons.size()) wep = weapon;
     Imath::Vec2<float> u(x, y);
     while (1) {
-        TCOD_console_clear(console->get());
-        GameMap::getInstance().blit(console);
+        TCOD_console_clear(player_console->get());
         Imath::Vec2<float> v(x, y);
         float dist = (v - u).length();
         TCODLine::init(p.x, p.y, x, y);
         int lx, ly;
         Colour col = (dist <= w[wep].range) ? Colour(1, 1, 1) : Colour(1, 0, 0);
         while (!TCODLine::step(&lx, &ly)) {
-            tcod::print(*console, {lx, ly}, "*", Colour(0, 0, 0).toColor(), col.toColor());
+            tcod::print(*player_console, {lx, ly}, "*", Colour(0, 0, 0).toColor(), col.toColor());
         }
-        context->present(*console);
+        render();
         SDL_Event event;
         SDL_WaitEvent(nullptr);
         while(SDL_PollEvent(&event)) {
